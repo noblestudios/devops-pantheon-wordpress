@@ -1,0 +1,107 @@
+name: Build + Deploy
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '18'
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Set Environment Variables
+        run: |
+          echo "PANTHEON_SITE_ID=${{ vars.PANTHEON_SITE_ID }}" >> $GITHUB_ENV
+        env:
+          PANTHEON_SITE_ID: ${{ vars.PANTHEON_SITE_ID }}
+
+      - name: Setup Lando
+        uses: lando/setup-lando@v2
+        with:
+          lando-version: 'v3.18.0'
+
+      - name: SSH Keyscan
+        run: |
+          ssh-keyscan -t rsa -p 2222 codeserver.dev.${{ vars.PANTHEON_SITE_ID }}.drush.in >> ~/.ns-ssh-keyscan
+          SSH_HOSTS=$(cat ~/.ns-ssh-keyscan)
+          echo "SSH_HOSTS=${SSH_HOSTS}" >> $GITHUB_ENV
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.DEPLOYMENT_KEY }}
+          known_hosts: ${{ env.SSH_HOSTS }}
+
+      - name: Install Dependencies
+        shell: bash
+        run: |
+          npm --workspaces ci
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "Noble Developers"
+          git config --global user.email "NobleDevs@gmail.com"
+
+      - name: Install Terminus
+        uses: pantheon-systems/terminus-github-actions@main
+        with:
+          pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
+
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
+      - name: JS - Linter
+        run: |
+          ./bin/js-lint > >(tee /tmp/js-lint.out)
+          cat /tmp/js-lint.out >> $GITHUB_STEP_SUMMARY
+
+      - name: Build
+        run: |
+          npm run bob -- build:ns-bb-theme
+
+      - name: Test Javascript
+        working-directory: wp-content/themes/ns-bb-theme/
+        run: |
+          npm run test
+
+      - name: Package
+        run: |
+          npm run bob package:ns-bb-theme
+
+      - name: Deploy
+        run: |
+          npm run bob deploy:ns-bb-theme
+
+      - name: Dispatch Slack Message
+        id: slack
+        uses: slackapi/slack-github-action@v1.24.0
+        if: failure()
+        with:
+          # For posting a rich message using Block Kit
+          payload: |
+            {
+              "text": "GitHub Action build result: ${{ job.status }} :sadcat: :no_entry_sign:\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "GitHub Action build result: ${{ job.status }} :sadcat: :no_entry_sign:\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
