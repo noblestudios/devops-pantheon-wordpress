@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/search-listings",
+  "title": "Search Listings",
+  "description": "Block for display of search results",
+  "category": "listing-blocks",
+  "icon": "",
+  "keywords": [
+    "search",
+    "listings"
+  ],
+  "styles": [],
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "multiple": false
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "headline": {
+      "type": "string",
+      "default": "Site Search"
+    },
+    "headlineTag": {
+      "type": "string",
+      "default": "h1"
+    }
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "editorScript": "file:./index.js",
+  "style": [
+    "ns-searchListings",
+    "ns-paginatedResult",
+    "ns-pageNavigation"
+  ],
+  "render": "file:./template-search-listings.php"
+}

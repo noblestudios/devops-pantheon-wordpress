@@ -1,0 +1,7 @@
+button.--hover-light {
+  transition: all .3s;
+
+  &:hover {
+    opacity: .7;
+  }
+}

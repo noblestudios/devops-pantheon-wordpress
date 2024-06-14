@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/sg-globals",
+  "title": "Globals Styleguide",
+  "category": "widgets",
+  "description": "Block for displaying site globals",
+  "keywords": [
+    "styleguide container"
+  ],
+  "textdomain": "default",
+  "supports": {
+    "anchor": false,
+    "className": true,
+    "align": false
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "editorScript": "file:./index.js",
+  "style": "ns-sgGlobals",
+  "render": "file:./template-sg-globals.php"
+}

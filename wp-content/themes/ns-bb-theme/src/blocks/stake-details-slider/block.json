@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/stake-details-slider",
+  "title": "Stakeholder Details with Image Slider",
+  "description": "Displays stakeholder details, socials, amenities, and image slider",
+  "category": "widgets",
+  "keywords": [],
+  "styles": [],
+  "supports": {
+    "multiple": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "detailsHeadline": {
+      "type": "string",
+      "default": "Details"
+    },
+    "detailsHeadlineTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "amenitiesHeadline": {
+      "type": "string",
+      "default": "Amenities"
+    },
+    "amenitiesHeadlineTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "galleryImages": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "style": [
+    "ns-stakeDetailsSlider",
+    "ns-detailsImageSlider"
+  ],
+  "script": "ns-stakeholderSlider-js",
+  "editorScript": "file:./index.js",
+  "render": "file:./template-stake-details-slider.php"
+}

@@ -1,0 +1,99 @@
+@use '../abstracts' as *;
+
+.paginated-result-wide {
+
+  @include unstyled-link;
+
+  @include tablet {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      gap: var(--ns-spacingMini1);
+
+      .paginated-result__image {
+
+      }
+
+    &:nth-child(even) {
+      //transform: translateY(40px);
+    }
+  }
+
+  &__image {
+    aspect-ratio: 2.5;
+    overflow: hidden;
+    position: relative;
+
+    @include tablet {
+      flex-basis: 280px;
+      flex-shrink: 0;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__body {
+    margin: {
+      top: var(--ns-spacingMini1);
+    }
+
+    @include desktop {
+      margin: {
+        top: 0;
+      }
+    }
+
+    &-type {
+
+    }
+
+    &-title {
+      margin: {
+        top: var(--ns-spacingMini2);
+      }
+    }
+
+    &-byline {
+      @include text-micro;
+      margin: {
+        top: var(--ns-spacingMini1);
+      }
+    }
+
+    &-excerpt {
+      margin: {
+        top: var(--ns-spacingMini1);
+      }
+    }
+
+    &-cta {
+      @include default-link;
+      display: block;
+      margin: {
+        top: var(--ns-spacingMini1);
+      }
+      line-height: 1;
+    }
+  }
+
+  &:hover {
+    .\--cta {
+
+      &::after {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  &:active {
+    .\--cta {
+
+    }
+  }
+}

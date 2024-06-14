@@ -1,0 +1,353 @@
+@use '../abstracts' as *;
+
+:root,
+.editor-styles-wrapper {
+  --ns-fontSize: 16px;
+  --ns-fontFamily: #{$default_font_family};
+  --ns-fontWeight: 400;
+  --ns-lineHeight: 1.5rem;
+
+  --ns-p-normal-fontSize: #{$text-fontSize-normal-mbl};
+  --ns-p-normal-lineHeight: #{$text-lineHeight-normal};
+  --ns-p-normal-fontWeight: #{$text-fontWeight-normal-mbl};
+
+  --ns-p-micro-fontSize: #{$text-fontSize-micro-mbl};
+  --ns-p-micro-lineHeight: #{$text-lineHeight-micro};
+  --ns-p-micro-fontWeight: #{$text-fontWeight-micro-mbl};
+
+  --ns-hl-xxl-fontFamily: #{$hl-xxl-fontFamily};
+  --ns-hl-xxl-fontSize: #{$hl-xxl-fontSize-mbl};
+  --ns-hl-xxl-lineHeight: #{$hl-xxl-lineHeight};
+  --ns-hl-xxl-fontWeight: #{$hl-xxl-fontWeight-mbl};
+  --ns-hl-xxl-letterSpacing: #{$hl-xxl-letterSpacing};
+  --ns-hl-xxl-textTransform: #{$hl-xxl-textTransform-mbl};
+
+  --ns-hl-xl-fontFamily: #{$hl-xl-fontFamily};
+  --ns-hl-xl-fontSize: #{$hl-xl-fontSize-mbl};
+  --ns-hl-xl-lineHeight: #{$hl-xl-lineHeight};
+  --ns-hl-xl-fontWeight: #{$hl-xl-fontWeight-mbl};
+  --ns-hl-xl-letterSpacing: #{$hl-xl-letterSpacing};
+  --ns-hl-xl-textTransform: #{$hl-xl-textTransform-mbl};
+
+  --ns-hl-l-fontFamily: #{$hl-l-fontFamily};
+  --ns-hl-l-fontSize: #{$hl-l-fontSize-mbl};
+  --ns-hl-l-lineHeight: #{$hl-l-lineHeight};
+  --ns-hl-l-fontWeight: #{$hl-l-fontWeight-mbl};
+  --ns-hl-l-letterSpacing: #{$hl-l-letterSpacing};
+  --ns-hl-l-textTransform: #{$hl-l-textTransform-mbl};
+
+  --ns-hl-m-fontFamily: #{$hl-m-fontFamily};
+  --ns-hl-m-fontSize: #{$hl-m-fontSize-mbl};
+  --ns-hl-m-lineHeight: #{$hl-m-lineHeight};
+  --ns-hl-m-fontWeight: #{$hl-m-fontWeight-mbl};
+  --ns-hl-m-letterSpacing: #{$hl-m-letterSpacing};
+  --ns-hl-m-textTransform: #{$hl-m-textTransform-mbl};
+
+  --ns-hl-s-fontFamily: #{$hl-s-fontFamily};
+  --ns-hl-s-fontSize: #{$hl-s-fontSize-mbl};
+  --ns-hl-s-lineHeight: #{$hl-s-lineHeight};
+  --ns-hl-s-fontWeight: #{$hl-s-fontWeight-mbl};
+  --ns-hl-s-letterSpacing: #{$hl-s-letterSpacing};
+  --ns-hl-s-textTransform: #{$hl-s-textTransform-mbl};
+
+  --ns-hl-xs-fontFamily: #{$hl-xs-fontFamily};
+  --ns-hl-xs-fontSize: #{$hl-xs-fontSize-mbl};
+  --ns-hl-xs-lineHeight: #{$hl-xs-lineHeight};
+  --ns-hl-xs-fontWeight: #{$hl-xs-fontWeight-mbl};
+  --ns-hl-xs-letterSpacing: #{$hl-xs-letterSpacing};
+  --ns-hl-xs-textTransform: #{$hl-xs-textTransform-mbl};
+
+  --ns-eyebrow-fontSize: #{$eyebrow-fontSize-mbl};
+
+  --ns-label-fontSize: #{$label-fontSize-mbl};
+
+  --ns-nav-fontSize: #{$nav-fontSize-mbl};
+  --ns-nav-secondary-fontSize: #{$nav-secondary-fontSize-mbl};
+
+  @include desktop {
+    --ns-p-normal-fontSize: #{$text-fontSize-normal};
+    --ns-p-normal-fontWeight: #{$text-fontWeight-normal};
+    --ns-p-micro-fontSize: #{$text-fontSize-micro};
+    --ns-p-micro-fontWeight: #{$text-fontWeight-micro};
+    --ns-hl-xxl-fontSize: #{$hl-xxl-fontSize};
+    --ns-hl-xxl-fontWeight: #{$hl-xxl-fontWeight};
+    --ns-hl-xxl-textTransform: #{$hl-xxl-textTransform};
+    --ns-hl-xl-fontSize: #{$hl-xl-fontSize};
+    --ns-hl-xl-fontWeight: #{$hl-xl-fontWeight};
+    --ns-hl-xl-textTransform: #{$hl-xl-textTransform};
+    --ns-hl-l-fontSize: #{$hl-l-fontSize};
+    --ns-hl-l-fontWeight: #{$hl-l-fontWeight};
+    --ns-hl-l-textTransform: #{$hl-l-textTransform};
+    --ns-hl-m-fontSize: #{$hl-m-fontSize};
+    --ns-hl-m-fontWeight: #{$hl-m-fontWeight};
+    --ns-hl-m-textTransform: #{$hl-m-textTransform};
+    --ns-hl-s-fontSize: #{$hl-s-fontSize};
+    --ns-hl-s-fontWeight: #{$hl-s-fontWeight};
+    --ns-hl-s-textTransform: #{$hl-s-textTransform};
+    --ns-hl-xs-fontSize: #{$hl-xs-fontSize};
+    --ns-hl-xs-fontWeight: #{$hl-xs-fontWeight};
+    --ns-hl-xs-textTransform: #{$hl-xs-textTransform};
+    --ns-eyebrow-fontSize: #{$eyebrow-fontSize};
+    --ns-label-fontSize: #{$label-fontSize};
+    --ns-nav-fontSize: #{$nav-fontSize};
+    --ns-nav-secondary-fontSize: #{$nav-secondary-fontSize};
+  }
+
+  .is-style-p-micro {
+    --ns-p-normal-fontSize: var(--ns-p-micro-fontSize);
+    --ns-p-normal-lineHeight: var(--ns-p-micro-lineHeight);
+    --ns-p-normal-fontWeight: var(--ns-p-micro-fontWeight);
+  }
+
+  .is-style-hl-xxl {
+    --ns-hl-xl-fontFamily: var(--ns-hl-xxl-fontFamily);
+    --ns-hl-xl-color: var(--ns-hl-xxl-color);
+    --ns-hl-xl-fontSize: var(--ns-hl-xxl-fontSize);
+    --ns-hl-xl-lineHeight: var(--ns-hl-xxl-lineHeight);
+    --ns-hl-xl-fontWeight: var(--ns-hl-xxl-fontWeight);
+    --ns-hl-xl-letterSpacing: var(--ns-hl-xxl-letterSpacing);
+    --ns-hl-xl-textTransform: var(--ns-hl-xxl-textTransform);
+
+    --ns-hl-l-fontFamily: var(--ns-hl-xxl-fontFamily);
+    --ns-hl-l-color: var(--ns-hl-xxl-color);
+    --ns-hl-l-fontSize: var(--ns-hl-xxl-fontSize);
+    --ns-hl-l-lineHeight: var(--ns-hl-xxl-lineHeight);
+    --ns-hl-l-fontWeight: var(--ns-hl-xxl-fontWeight);
+    --ns-hl-l-letterSpacing: var(--ns-hl-xxl-letterSpacing);
+    --ns-hl-l-textTransform: var(--ns-hl-xxl-textTransform);
+
+    --ns-hl-m-fontFamily: var(--ns-hl-xxl-fontFamily);
+    --ns-hl-m-color: var(--ns-hl-xxl-color);
+    --ns-hl-m-fontSize: var(--ns-hl-xxl-fontSize);
+    --ns-hl-m-lineHeight: var(--ns-hl-xxl-lineHeight);
+    --ns-hl-m-fontWeight: var(--ns-hl-xxl-fontWeight);
+    --ns-hl-m-letterSpacing: var(--ns-hl-xxl-letterSpacing);
+    --ns-hl-m-textTransform: var(--ns-hl-xxl-textTransform);
+
+    --ns-hl-s-fontFamily: var(--ns-hl-xxl-fontFamily);
+    --ns-hl-s-color: var(--ns-hl-xxl-color);
+    --ns-hl-s-fontSize: var(--ns-hl-xxl-fontSize);
+    --ns-hl-s-lineHeight: var(--ns-hl-xxl-lineHeight);
+    --ns-hl-s-fontWeight: var(--ns-hl-xxl-fontWeight);
+    --ns-hl-s-letterSpacing: var(--ns-hl-xxl-letterSpacing);
+    --ns-hl-s-textTransform: var(--ns-hl-xxl-textTransform);
+
+    --ns-hl-xs-fontFamily: var(--ns-hl-xxl-fontFamily);
+    --ns-hl-xs-color: var(--ns-hl-xxl-color);
+    --ns-hl-xs-fontSize: var(--ns-hl-xxl-fontSize);
+    --ns-hl-xs-lineHeight: var(--ns-hl-xxl-lineHeight);
+    --ns-hl-xs-fontWeight: var(--ns-hl-xxl-fontWeight);
+    --ns-hl-xs-letterSpacing: var(--ns-hl-xxl-letterSpacing);
+    --ns-hl-xs-textTransform: var(--ns-hl-xxl-textTransform);
+  }
+
+  .is-style-hl-xl {
+    --ns-hl-xxl-fontFamily: var(--ns-hl-xl-fontFamily);
+    --ns-hl-xxl-color: var(--ns-hl-xl-color);
+    --ns-hl-xxl-fontSize: var(--ns-hl-xl-fontSize);
+    --ns-hl-xxl-lineHeight: var(--ns-hl-xl-lineHeight);
+    --ns-hl-xxl-fontWeight: var(--ns-hl-xl-fontWeight);
+    --ns-hl-xxl-letterSpacing: var(--ns-hl-xl-letterSpacing);
+    --ns-hl-xxl-textTransform: var(--ns-hl-xl-textTransform);
+
+    --ns-hl-l-fontFamily: var(--ns-hl-xl-fontFamily);
+    --ns-hl-l-color: var(--ns-hl-xl-color);
+    --ns-hl-l-fontSize: var(--ns-hl-xl-fontSize);
+    --ns-hl-l-lineHeight: var(--ns-hl-xl-lineHeight);
+    --ns-hl-l-fontWeight: var(--ns-hl-xl-fontWeight);
+    --ns-hl-l-letterSpacing: var(--ns-hl-xl-letterSpacing);
+    --ns-hl-l-textTransform: var(--ns-hl-xl-textTransform);
+
+    --ns-hl-m-fontFamily: var(--ns-hl-xl-fontFamily);
+    --ns-hl-m-color: var(--ns-hl-xl-color);
+    --ns-hl-m-fontSize: var(--ns-hl-xl-fontSize);
+    --ns-hl-m-lineHeight: var(--ns-hl-xl-lineHeight);
+    --ns-hl-m-fontWeight: var(--ns-hl-xl-fontWeight);
+    --ns-hl-m-letterSpacing: var(--ns-hl-xl-letterSpacing);
+    --ns-hl-m-textTransform: var(--ns-hl-xl-textTransform);
+
+    --ns-hl-s-fontFamily: var(--ns-hl-xl-fontFamily);
+    --ns-hl-s-color: var(--ns-hl-xl-color);
+    --ns-hl-s-fontSize: var(--ns-hl-xl-fontSize);
+    --ns-hl-s-lineHeight: var(--ns-hl-xl-lineHeight);
+    --ns-hl-s-fontWeight: var(--ns-hl-xl-fontWeight);
+    --ns-hl-s-letterSpacing: var(--ns-hl-xl-letterSpacing);
+    --ns-hl-s-textTransform: var(--ns-hl-xl-textTransform);
+
+    --ns-hl-xs-fontFamily: var(--ns-hl-xl-fontFamily);
+    --ns-hl-xs-color: var(--ns-hl-xl-color);
+    --ns-hl-xs-fontSize: var(--ns-hl-xl-fontSize);
+    --ns-hl-xs-lineHeight: var(--ns-hl-xl-lineHeight);
+    --ns-hl-xs-fontWeight: var(--ns-hl-xl-fontWeight);
+    --ns-hl-xs-letterSpacing: var(--ns-hl-xl-letterSpacing);
+    --ns-hl-xs-textTransform: var(--ns-hl-xl-textTransform);
+  }
+
+  .is-style-hl-l {
+    --ns-hl-xxl-fontFamily: var(--ns-hl-l-fontFamily);
+    --ns-hl-xxl-color: var(--ns-hl-l-color);
+    --ns-hl-xxl-fontSize: var(--ns-hl-l-fontSize);
+    --ns-hl-xxl-lineHeight: var(--ns-hl-l-lineHeight);
+    --ns-hl-xxl-fontWeight: var(--ns-hl-l-fontWeight);
+    --ns-hl-xxl-letterSpacing: var(--ns-hl-l-letterSpacing);
+    --ns-hl-xxl-textTransform: var(--ns-hl-l-textTransform);
+
+    --ns-hl-xl-fontFamily: var(--ns-hl-l-fontFamily);
+    --ns-hl-xl-color: var(--ns-hl-l-color);
+    --ns-hl-xl-fontSize: var(--ns-hl-l-fontSize);
+    --ns-hl-xl-lineHeight: var(--ns-hl-l-lineHeight);
+    --ns-hl-xl-fontWeight: var(--ns-hl-l-fontWeight);
+    --ns-hl-xl-letterSpacing: var(--ns-hl-l-letterSpacing);
+    --ns-hl-xl-textTransform: var(--ns-hl-l-textTransform);
+
+    --ns-hl-m-fontFamily: var(--ns-hl-l-fontFamily);
+    --ns-hl-m-color: var(--ns-hl-l-color);
+    --ns-hl-m-fontSize: var(--ns-hl-l-fontSize);
+    --ns-hl-m-lineHeight: var(--ns-hl-l-lineHeight);
+    --ns-hl-m-fontWeight: var(--ns-hl-l-fontWeight);
+    --ns-hl-m-letterSpacing: var(--ns-hl-l-letterSpacing);
+    --ns-hl-m-textTransform: var(--ns-hl-l-textTransform);
+
+    --ns-hl-s-fontFamily: var(--ns-hl-l-fontFamily);
+    --ns-hl-s-color: var(--ns-hl-l-color);
+    --ns-hl-s-fontSize: var(--ns-hl-l-fontSize);
+    --ns-hl-s-lineHeight: var(--ns-hl-l-lineHeight);
+    --ns-hl-s-fontWeight: var(--ns-hl-l-fontWeight);
+    --ns-hl-s-letterSpacing: var(--ns-hl-l-letterSpacing);
+    --ns-hl-s-textTransform: var(--ns-hl-l-textTransform);
+
+    --ns-hl-xs-fontFamily: var(--ns-hl-l-fontFamily);
+    --ns-hl-xs-color: var(--ns-hl-l-color);
+    --ns-hl-xs-fontSize: var(--ns-hl-l-fontSize);
+    --ns-hl-xs-lineHeight: var(--ns-hl-l-lineHeight);
+    --ns-hl-xs-fontWeight: var(--ns-hl-l-fontWeight);
+    --ns-hl-xs-letterSpacing: var(--ns-hl-l-letterSpacing);
+    --ns-hl-xs-textTransform: var(--ns-hl-l-textTransform);
+  }
+
+  .is-style-hl-m {
+    --ns-hl-xxl-fontFamily: var(--ns-hl-m-fontFamily);
+    --ns-hl-xxl-color: var(--ns-hl-m-color);
+    --ns-hl-xxl-fontSize: var(--ns-hl-m-fontSize);
+    --ns-hl-xxl-lineHeight: var(--ns-hl-m-lineHeight);
+    --ns-hl-xxl-fontWeight: var(--ns-hl-m-fontWeight);
+    --ns-hl-xxl-letterSpacing: var(--ns-hl-m-letterSpacing);
+    --ns-hl-xxl-textTransform: var(--ns-hl-m-textTransform);
+
+    --ns-hl-xl-fontFamily: var(--ns-hl-m-fontFamily);
+    --ns-hl-xl-color: var(--ns-hl-m-color);
+    --ns-hl-xl-fontSize: var(--ns-hl-m-fontSize);
+    --ns-hl-xl-lineHeight: var(--ns-hl-m-lineHeight);
+    --ns-hl-xl-fontWeight: var(--ns-hl-m-fontWeight);
+    --ns-hl-xl-letterSpacing: var(--ns-hl-m-letterSpacing);
+    --ns-hl-xl-textTransform: var(--ns-hl-m-textTransform);
+
+    --ns-hl-l-fontFamily: var(--ns-hl-m-fontFamily);
+    --ns-hl-l-color: var(--ns-hl-m-color);
+    --ns-hl-l-fontSize: var(--ns-hl-m-fontSize);
+    --ns-hl-l-lineHeight: var(--ns-hl-m-lineHeight);
+    --ns-hl-l-fontWeight: var(--ns-hl-m-fontWeight);
+    --ns-hl-l-letterSpacing: var(--ns-hl-m-letterSpacing);
+    --ns-hl-l-textTransform: var(--ns-hl-m-textTransform);
+
+    --ns-hl-s-fontFamily: var(--ns-hl-m-fontFamily);
+    --ns-hl-s-color: var(--ns-hl-m-color);
+    --ns-hl-s-fontSize: var(--ns-hl-m-fontSize);
+    --ns-hl-s-lineHeight: var(--ns-hl-m-lineHeight);
+    --ns-hl-s-fontWeight: var(--ns-hl-m-fontWeight);
+    --ns-hl-s-letterSpacing: var(--ns-hl-m-letterSpacing);
+    --ns-hl-s-textTransform: var(--ns-hl-m-textTransform);
+
+    --ns-hl-xs-fontFamily: var(--ns-hl-m-fontFamily);
+    --ns-hl-xs-color: var(--ns-hl-m-color);
+    --ns-hl-xs-fontSize: var(--ns-hl-m-fontSize);
+    --ns-hl-xs-lineHeight: var(--ns-hl-m-lineHeight);
+    --ns-hl-xs-fontWeight: var(--ns-hl-m-fontWeight);
+    --ns-hl-xs-letterSpacing: var(--ns-hl-m-letterSpacing);
+    --ns-hl-xs-textTransform: var(--ns-hl-m-textTransform);
+  }
+
+  .is-style-hl-s {
+    --ns-hl-xxl-fontFamily: var(--ns-hl-s-fontFamily);
+    --ns-hl-xxl-color: var(--ns-hl-s-color);
+    --ns-hl-xxl-fontSize: var(--ns-hl-s-fontSize);
+    --ns-hl-xxl-lineHeight: var(--ns-hl-s-lineHeight);
+    --ns-hl-xxl-fontWeight: var(--ns-hl-s-fontWeight);
+    --ns-hl-xxl-letterSpacing: var(--ns-hl-s-letterSpacing);
+    --ns-hl-xxl-textTransform: var(--ns-hl-s-textTransform);
+
+    --ns-hl-xl-fontFamily: var(--ns-hl-s-fontFamily);
+    --ns-hl-xl-color: var(--ns-hl-s-color);
+    --ns-hl-xl-fontSize: var(--ns-hl-s-fontSize);
+    --ns-hl-xl-lineHeight: var(--ns-hl-s-lineHeight);
+    --ns-hl-xl-fontWeight: var(--ns-hl-s-fontWeight);
+    --ns-hl-xl-letterSpacing: var(--ns-hl-s-letterSpacing);
+    --ns-hl-xl-textTransform: var(--ns-hl-s-textTransform);
+
+    --ns-hl-l-fontFamily: var(--ns-hl-s-fontFamily);
+    --ns-hl-l-color: var(--ns-hl-s-color);
+    --ns-hl-l-fontSize: var(--ns-hl-s-fontSize);
+    --ns-hl-l-lineHeight: var(--ns-hl-s-lineHeight);
+    --ns-hl-l-fontWeight: var(--ns-hl-s-fontWeight);
+    --ns-hl-l-letterSpacing: var(--ns-hl-s-letterSpacing);
+    --ns-hl-l-textTransform: var(--ns-hl-s-textTransform);
+
+    --ns-hl-m-fontFamily: var(--ns-hl-s-fontFamily);
+    --ns-hl-m-color: var(--ns-hl-s-color);
+    --ns-hl-m-fontSize: var(--ns-hl-s-fontSize);
+    --ns-hl-m-lineHeight: var(--ns-hl-s-lineHeight);
+    --ns-hl-m-fontWeight: var(--ns-hl-s-fontWeight);
+    --ns-hl-m-letterSpacing: var(--ns-hl-s-letterSpacing);
+    --ns-hl-m-textTransform: var(--ns-hl-s-textTransform);
+
+    --ns-hl-xs-fontFamily: var(--ns-hl-s-fontFamily);
+    --ns-hl-xs-color: var(--ns-hl-s-color);
+    --ns-hl-xs-fontSize: var(--ns-hl-s-fontSize);
+    --ns-hl-xs-lineHeight: var(--ns-hl-s-lineHeight);
+    --ns-hl-xs-fontWeight: var(--ns-hl-s-fontWeight);
+    --ns-hl-xs-letterSpacing: var(--ns-hl-s-letterSpacing);
+    --ns-hl-xs-textTransform: var(--ns-hl-s-textTransform);
+  }
+
+  .is-style-hl-xs {
+    --ns-hl-xxl-fontFamily: var(--ns-hl-xs-fontFamily);
+    --ns-hl-xxl-color: var(--ns-hl-xs-color);
+    --ns-hl-xxl-fontSize: var(--ns-hl-xs-fontSize);
+    --ns-hl-xxl-lineHeight: var(--ns-hl-xs-lineHeight);
+    --ns-hl-xxl-fontWeight: var(--ns-hl-xs-fontWeight);
+    --ns-hl-xxl-letterSpacing: var(--ns-hl-xs-letterSpacing);
+    --ns-hl-xxl-textTransform: var(--ns-hl-xs-textTransform);
+
+    --ns-hl-xl-fontFamily: var(--ns-hl-xs-fontFamily);
+    --ns-hl-xl-color: var(--ns-hl-xs-color);
+    --ns-hl-xl-fontSize: var(--ns-hl-xs-fontSize);
+    --ns-hl-xl-lineHeight: var(--ns-hl-xs-lineHeight);
+    --ns-hl-xl-fontWeight: var(--ns-hl-xs-fontWeight);
+    --ns-hl-xl-letterSpacing: var(--ns-hl-xs-letterSpacing);
+    --ns-hl-xl-textTransform: var(--ns-hl-xs-textTransform);
+
+    --ns-hl-l-fontFamily: var(--ns-hl-xs-fontFamily);
+    --ns-hl-l-color: var(--ns-hl-xs-color);
+    --ns-hl-l-fontSize: var(--ns-hl-xs-fontSize);
+    --ns-hl-l-lineHeight: var(--ns-hl-xs-lineHeight);
+    --ns-hl-l-fontWeight: var(--ns-hl-xs-fontWeight);
+    --ns-hl-l-letterSpacing: var(--ns-hl-xs-letterSpacing);
+    --ns-hl-l-textTransform: var(--ns-hl-xs-textTransform);
+
+    --ns-hl-m-fontFamily: var(--ns-hl-xs-fontFamily);
+    --ns-hl-m-color: var(--ns-hl-xs-color);
+    --ns-hl-m-fontSize: var(--ns-hl-xs-fontSize);
+    --ns-hl-m-lineHeight: var(--ns-hl-xs-lineHeight);
+    --ns-hl-m-fontWeight: var(--ns-hl-xs-fontWeight);
+    --ns-hl-m-letterSpacing: var(--ns-hl-xs-letterSpacing);
+    --ns-hl-m-textTransform: var(--ns-hl-xs-textTransform);
+
+    --ns-hl-s-fontFamily: var(--ns-hl-xs-fontFamily);
+    --ns-hl-s-color: var(--ns-hl-xs-color);
+    --ns-hl-s-fontSize: var(--ns-hl-xs-fontSize);
+    --ns-hl-s-lineHeight: var(--ns-hl-xs-lineHeight);
+    --ns-hl-s-fontWeight: var(--ns-hl-xs-fontWeight);
+    --ns-hl-s-letterSpacing: var(--ns-hl-xs-letterSpacing);
+    --ns-hl-s-textTransform: var(--ns-hl-xs-textTransform);
+  }
+}

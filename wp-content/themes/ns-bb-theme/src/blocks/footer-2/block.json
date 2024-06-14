@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/footer2",
+  "title": "Site Footer 2",
+  "description": "",
+  "category": "nav-blocks",
+  "icon": "",
+  "keywords": [
+    "site",
+    "footer",
+    "navigation"
+  ],
+  "styles": [],
+  "supports": {
+    "anchor": false,
+    "align": false
+  },
+  "attributes": {
+    "logo": {
+      "type": "integer",
+      "default": 0
+    },
+    "copyrightText": {
+      "type": "string",
+      "default": "Business Name"
+    },
+    "showPrivacy": {
+      "type": "boolean",
+      "default": true
+    },
+    "privacyLink": {
+      "type": "object",
+      "default": false
+    },
+    "showTerms": {
+      "type": "boolean",
+      "default": true
+    },
+    "termsLink": {
+      "type": "object",
+      "default": false
+    }
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "render": "file:./template-footer-2.php",
+  "editorScript": "file:./index.js",
+  "style": "ns-footer2"
+}

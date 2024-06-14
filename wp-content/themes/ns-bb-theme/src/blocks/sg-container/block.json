@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/sg-container",
+  "title": "Styleguide container",
+  "category": "widgets",
+  "description": " wrap elements in a block to add label for the style guide",
+  "keywords": [
+    "styleguide container"
+  ],
+  "textdomain": "default",
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": "Block Title"
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": false
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "editorScript": "file:./index.js",
+  "style": "ns-sg-container",
+  "render": "file:./template-sg-container.php"
+}

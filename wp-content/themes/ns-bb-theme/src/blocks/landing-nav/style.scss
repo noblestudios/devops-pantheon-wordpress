@@ -1,0 +1,114 @@
+@use '../../styles/abstracts' as *;
+
+$nav-height-desktop: 56px;
+$nav-height-mobile: 64px;
+
+.wp-block-ns-landing-nav {
+  height: $nav-height-mobile;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  z-index: 200;
+
+  @include desktop {
+    height: $nav-height-desktop;
+  }
+
+  &__wrapper {
+    @include navSize;
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__logo-wrapper {
+    display: block;
+    height: 100%;
+    padding: {
+      top: 8px;
+      bottom: 8px;
+    }
+
+    margin: 0;
+
+    img,
+    svg {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  &__logo {
+    height: 100%;
+    width: auto;
+  }
+
+  &__links {
+    display: none;
+    height: 100%;
+
+    @include desktop {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__items {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+
+  &__item {
+    padding: 0;
+
+    margin: {
+      bottom: 0;
+    }
+  }
+
+  &__item-jump {
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    @include nav-link;
+    color: $color-hl-primary;
+    height: 100%;
+  }
+
+  &__ctas {
+    display: flex;
+    gap: 8px;
+
+    @include desktop {
+      gap: 32px;
+    }
+  }
+
+  &__cta-wrapper {}
+
+  &__cta-link {
+    @include micro-button;
+    text-decoration: none;
+  }
+}
+
+body.single-landing {
+
+  main.wp-block-group {
+    margin: {
+      top: $nav-height-mobile;
+    }
+
+    @include desktop {
+      margin: {
+        top: $nav-height-desktop;
+      }
+    }
+  }
+}

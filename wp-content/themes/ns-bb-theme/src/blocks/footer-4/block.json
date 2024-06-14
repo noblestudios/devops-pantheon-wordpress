@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/footer4",
+  "title": "Site Footer 4",
+  "description": "",
+  "category": "nav-blocks",
+  "icon": "",
+  "keywords": [
+    "site",
+    "footer",
+    "navigation"
+  ],
+  "styles": [],
+  "supports": {
+    "anchor": false,
+    "align": false
+  },
+  "attributes": {
+    "logo": {
+      "type": "integer",
+      "default": 0
+    },
+    "copyrightText": {
+      "type": "string",
+      "default": "Business Name"
+    },
+    "showPrivacy": {
+      "type": "boolean",
+      "default": true
+    },
+    "privacyLink": {
+      "type": "object",
+      "default": false
+    },
+    "showTerms": {
+      "type": "boolean",
+      "default": true
+    },
+    "termsLink": {
+      "type": "object",
+      "default": false
+    },
+    "formHeadline": {
+      "type": "string",
+      "default": "Sign Up"
+    },
+    "formHeadlineTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "formIntro": {
+      "type": "string",
+      "default": ""
+    },
+    "formCta1": {
+      "type": "object",
+      "default": false
+    },
+    "formCta2": {
+      "type": "object",
+      "default": false
+    }
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "style": "ns-footer4",
+  "render": "file:./template-footer-4.php",
+  "editorScript": "file:./index.js"
+}

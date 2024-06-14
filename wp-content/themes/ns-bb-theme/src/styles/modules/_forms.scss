@@ -1,0 +1,185 @@
+@use '../abstracts';
+
+input[type='text'] {
+  background-color: #fff;
+}
+
+@mixin label {
+  @include abstracts.label;
+
+  margin: {
+    bottom: 8px;
+  }
+}
+
+@mixin textInput {
+  @include abstracts.paragraph;
+
+  padding: {
+    top: 11px;
+    bottom: 11px;
+    left: 16px;
+    right: 16px;
+  }
+
+  border: 1px solid var(--ns-color-hl-primary);
+}
+
+@mixin fieldset {
+  border: 0;
+  padding: 0;
+
+  margin: {
+    bottom: 24px;
+  }
+
+  @include abstracts.desktop {
+    margin: {
+      bottom: 40px;
+    }
+  }
+}
+
+@mixin selectWrapper {
+  position: relative;
+
+  margin: {
+    bottom: 24px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: calc(50% - 10px);
+    right: 15px;
+    background-image: url('~/assets/svgs/arrows/caret-down.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include abstracts.color-interactive-filter;
+    transform: rotateZ(90deg);
+  }
+
+  @include abstracts.desktop {
+    margin: {
+      bottom: 0;
+    }
+  }
+}
+
+@mixin basicSelect {
+  appearance: none;
+  @include abstracts.paragraph;
+  width: 100%;
+
+  padding: {
+    top: 11px;
+    bottom: 11px;
+    left: 16px;
+    right: 44px;
+  }
+
+  border: 1px solid abstracts.$color-hl-primary;
+}
+
+@mixin radioBlock {
+  input[type='radio'] {
+    display: none;
+
+    &+label {
+      cursor: pointer;
+
+      padding: {
+        left: 29px;
+      }
+
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: calc(50% - 8px);
+        width: 16px;
+        height: 16px;
+        border: 1px solid var(--ns-color-hl-primary);
+        border-radius: 50%;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 3px;
+        top: calc(50% - 5px);
+        width: 10px;
+        height: 10px;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  input[type='radio']:checked {
+    &+label {
+      position: relative;
+
+      &::before {}
+
+      &::after {
+        background-color: var(--ns-color-hl-primary);
+        border: 1px solid var(--ns-color-hl-primary);
+      }
+    }
+  }
+}
+
+@mixin checkboxBlock {
+  input[type='checkbox'] {
+    display: none;
+
+    &+label {
+      padding: {
+        left: 29px;
+      }
+
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: calc(50% - 8px);
+        width: 16px;
+        height: 16px;
+        border: 1px solid abstracts.$color-interactive-hover;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0px;
+        top: calc(50% - 3px);
+        width: 6px;
+        height: 6px;
+        background-color: transparent;
+        border: 1px solid transparent;
+      }
+    }
+  }
+
+  input[type='checkbox']:checked {
+    &+label {
+      position: relative;
+
+      &::before {}
+
+      &::after {
+        background-color: abstracts.$color-interactive-hover;
+        border: 1px solid abstracts.$color-interactive-hover;
+      }
+    }
+  }
+}

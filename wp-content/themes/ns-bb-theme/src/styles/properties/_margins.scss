@@ -1,0 +1,76 @@
+@use '../abstracts' as *;
+
+:root {
+  --ns-marginTop: 0;
+  --ns-marginBottom: 0;
+
+  --ns-spacingGridGutter: 24px;
+
+  --ns-spacingMajor1: 56px;
+  --ns-spacingMajor2: 40px;
+  --ns-spacingMinor1: 32px;
+  --ns-spacingMinor2: 16px;
+  --ns-spacingMini1: 8px;
+  --ns-spacingMini2: 0px;
+
+  @include desktop {
+    --ns-spacingGridGutter: 32px;
+    --ns-spacingMajor1: 112px;
+    --ns-spacingMajor2: 80px;
+    --ns-spacingMinor1: 48px;
+    --ns-spacingMinor2: 24px;
+    --ns-spacingMini1: 16px;
+    --ns-spacingMini2: 8px;
+  }
+
+  p + p,
+  p + ul,
+  p + ol,
+  p + figure,
+  p + .wp-block-buttons,
+  .wp-block-heading + p,
+  .wp-block-heading + ul,
+  .wp-block-heading + ol,
+  .wp-block-heading + figure,
+  .wp-block-heading + .wp-block-buttons,
+  ul + p,
+  ul + ul,
+  ul + ol,
+  ul + figure,
+  ul + .wp-block-buttons,
+  ol + p,
+  ol + ul,
+  ol + ol,
+  ol + figure,
+  ol + .wp-block-buttons,
+  figure + p,
+  figure + ul,
+  figure + ol,
+  figure + figure,
+  figure + .wp-block-buttons,
+  .wp-block-buttons + p,
+  .wp-block-buttons + ul,
+  .wp-block-buttons + ol,
+  .wp-block-buttons + figure,
+  .wp-block-buttons + .wp-block-buttons {
+    --ns-marginTop: var(--ns-spacingMini1);
+  }
+
+  p + .wp-block-heading,
+  .wp-block-heading + .wp-block-heading,
+  ol + .wp-block-heading,
+  ul + .wp-block-heading,
+  figure + .wp-block-heading,
+  .wp-block-buttons + .wp-block-heading {
+    --ns-marginTop: var(--ns-spacingMinor1);
+  }
+
+  h1.wp-block-heading + h2.wp-block-heading,
+  .wp-block-heading.is-style-hl-xxl + .wp-block-heading.is-style-hl-xl {
+    --ns-marginTop: var(--ns-spacingMinor2);
+  }
+
+  .--eyebrow + .wp-block-heading {
+    --ns-marginTop: var(--ns-spacingMini2);
+  }
+}

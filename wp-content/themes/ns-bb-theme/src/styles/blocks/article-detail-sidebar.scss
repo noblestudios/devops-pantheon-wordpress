@@ -1,0 +1,165 @@
+@use '../abstracts' as *;
+
+.sidebar-post-shares {
+  margin: {
+    bottom: 45px;
+  }
+
+  @include desktop {
+    margin: {
+      bottom: 52px;
+    }
+  }
+
+  &__headline {
+    color: var(--ns-color-hl-primary);
+    margin: {
+      top: 0;
+      bottom: 24px;
+    }
+
+    @include desktop {
+      margin: {
+        top: 0;
+        bottom: 32px;
+      }
+    }
+  }
+
+  &__links {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    padding: {
+      left: 0;
+    }
+    margin: 0;
+
+    > * {
+      height: 24px;
+      width: 24px;
+      margin: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: var(--ns-color-interactive);
+    transition: background-color $transition;
+    @include svg-mask;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: var(--ns-color-interactive-hover);
+    }
+
+    &.\--facebook {
+      mask-image: url(~/assets/svgs/socials/facebook.svg);
+      -webkit-mask-image: url(~/assets/svgs/socials/facebook.svg);
+    }
+
+    &.\--linkedin {
+      mask-image: url(~/assets/svgs/socials/linkedin.svg);
+      -webkit-mask-image: url(~/assets/svgs/socials/linkedin.svg);
+    }
+
+    &.\--twitter {
+      mask-image: url(~/assets/svgs/socials/twitter.svg);
+      -webkit-mask-image: url(~/assets/svgs/socials/twitter.svg);
+    }
+
+    &.\--mail {
+      mask-image: url(~/assets/svgs/socials/mail.svg);
+      -webkit-mask-image: url(~/assets/svgs/socials/mail.svg);
+    }
+
+    &.\--link {
+      mask-image: url(~/assets/svgs/socials/link-angled.svg);
+      -webkit-mask-image: url(~/assets/svgs/socials/link-angled.svg);
+    }
+  }
+}
+
+.sidebar-related {
+  margin: {
+    bottom: 40px;
+  }
+
+  @include desktop {
+    margin: {
+      bottom: 48px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__headline {
+    color: var(--ns-color-hl-primary);
+    margin: {
+      top: 0;
+      bottom: 24px;
+    }
+
+    @include desktop {
+      margin: {
+        bottom: 32px;
+      }
+    }
+  }
+
+  &__byline {
+    @include text-micro;
+    margin: {
+      top: 0;
+      bottom: 16px;
+    }
+  }
+
+  &__title {
+    color: var(--ns-color-hl-secondary);
+    margin: {
+      top: 0;
+      bottom: 16px;
+    }
+  }
+
+  &__cta {
+  }
+}
+
+.sidebar-categories {
+  padding: {
+    bottom: 60px;
+  }
+
+  @include desktop {
+    padding: {
+      bottom: 0;
+    }
+  }
+
+  &__headline {
+    color: var(--ns-color-hl-primary);
+    margin: {
+      top: 0;
+      bottom: 24px;
+    }
+
+    @include desktop {
+      margin: {
+        bottom: 32px;
+      }
+    }
+  }
+  a {
+    @include default-link;
+    line-height: 1;
+  }
+}

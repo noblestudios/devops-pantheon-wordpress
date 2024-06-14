@@ -1,0 +1,356 @@
+@use '../../styles/abstracts' as *;
+@use '../../styles/modules/forms';
+
+
+// @mixin mobile-filter-drawer {
+//   display: none;
+//   transition: all 0.5s;
+
+//   &.--is-open {
+//     position: fixed;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-end;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     top: 0;
+//     background-color: #00000080;
+//     z-index: 1;
+//   }
+
+//   @include desktop {
+//     display: unset;
+
+//     &.--is-open {
+//       position: relative;
+//       background-color: unset;
+//     }
+//   }
+
+//   .--filter-drawer-wrap {
+//     background-color: #FFFFFF;
+//     max-height: calc(100vh - 200px);
+//     border-radius: 10px 10px 0px 0px;
+//     overflow: auto;
+
+//     padding: {
+//       top: 32px;
+//       right: 27px;
+//       left: 16px;
+//       bottom: 32px;
+//     }
+
+//     @include desktop {
+//       padding: 0;
+//       max-height: unset;
+//       border-radius: 0px;
+//       overflow: hidden;
+//       background-color: unset;
+//     }
+//   }
+
+//   .--filter-drawer-close {
+//     display: flex;
+//     color: #FFFFFF;
+//     background: none;
+//     border: none;
+//     align-self: flex-end;
+//     gap: 16px;
+
+//     margin: {
+//       bottom: 8px;
+//       right: 16px;
+//     }
+
+//     &:after {
+//       content: '';
+//       height: 100%;
+//       width: 20px;
+//       display: block;
+//       background-color: #FFFFFF;
+//       @include svg-mask;
+//       mask-image: url(~/assets/svgs/icons/Times.svg);
+//       -webkit-mask-image: url(~/assets/svgs/icons/Times.svg);
+//     }
+
+//     @include desktop {
+//       display: none;
+//     }
+//   }
+// }
+
+.wp-block-ns-advanced-search {
+  padding: {
+    top: var(--ns-spacingMajor1);
+    bottom: var(--ns-spacingMajor1);
+  }
+
+  &__width {
+    @include wideSize;
+  }
+
+  &__head {
+    margin: {
+      bottom: 16px;
+    }
+
+    @include desktop {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 136px;
+
+      margin: {
+        bottom: var(--ns-spacingMajor2);
+      }
+    }
+  }
+
+  &__head-headline {}
+
+  &__head-count {
+    @include text-micro;
+
+    margin: {
+      top: var(--ns-spacingMini1);
+    }
+  }
+
+  &__head-filter-controls {
+    margin: {
+      top: 16px;
+      bottom: var(--ns-spacingMajor2);
+    }
+
+    display: flex;
+    justify-content: space-between;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__head-filter-mbl-toggle {
+    @include primary-button;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__head-filter-clear,
+  &__desktop-filter-clear {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: none;
+    font-size: var(--ns-p-micro-fontSize);
+    padding: 0;
+    @include default-link;
+
+    &.--is-hidden {
+      display: none;
+    }
+  }
+
+  &__desktop-filter-clear {
+    display: none;
+
+    @include desktop {
+      display: block;
+
+      margin: {
+        top: var(--ns-spacingMini2);
+      }
+    }
+  }
+
+
+
+  &__head-form {
+    flex-grow: 1;
+
+    margin: {
+      top: 16px;
+    }
+
+    @include desktop {
+      margin: {
+        top: 0;
+      }
+    }
+
+    form {
+      height: 52px;
+      width: 100%;
+      position: relative;
+
+      input[type='search'] {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #222222;
+        @include text-normal;
+
+        padding: {
+          left: 16px;
+        }
+
+        &::-webkit-search-decoration,
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-results-button,
+        &::-webkit-search-results-decoration {
+          display: none;
+        }
+      }
+
+      button {
+        position: absolute;
+        height: 100%;
+        width: 20px;
+        appearance: none;
+        -webkit-appearance: none;
+        border: none;
+        background: none;
+        background-image: url(~/assets/svgs/icons/search.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+        filter: $filter__color-interactive-dark;
+        cursor: pointer;
+        right: 16px;
+        top: 0;
+
+        &:hover,
+        &:active,
+        &:focus {
+          filter: $filter__color-dark-background;
+        }
+      }
+    }
+  }
+
+  &__columns {
+
+    @include desktop {
+      display: grid;
+      grid-template-columns: 336px 1fr;
+    }
+  }
+
+  &__filter-form {
+    @include mobile-filter-drawer;
+    // display: none;
+    // transition: all .5s;
+
+    &.--is-open {
+      //grid-template-rows: 1fr;
+      // position: fixed;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: flex-end;
+      // bottom: 0;
+      // left: 0;
+      // right: 0;
+      // top: 0;
+      // background-color: #00000080;
+      // z-index: 1;
+    }
+
+    // @include desktop {
+    //   display: block;
+    // }
+  }
+
+  &__filter-col-wrap {
+    // background-color: #FFFFFF;
+    // max-height: calc(100vh - 200px);
+    // border-radius: 10px 10px 0px 0px;
+    // overflow: auto;
+
+    // padding: {
+    //   top: 32px;
+    //   right: 27px;
+    //   left: 16px;
+    //   bottom: 32px;
+    // }
+
+    // @include desktop {
+    //   padding: 0;
+    //   max-height: unset;
+    //   border-radius: 0px;
+    //   overflow: hidden;
+    //   background-color: unset;
+    // }
+  }
+
+  &__mobile-filter-close {
+    // display: flex;
+    // color: #FFFFFF;
+    // background: none;
+    // border: none;
+    // align-self: flex-end;
+    // gap: 16px;
+
+    // margin: {
+    //   bottom: 8px;
+    //   right: 16px;
+    // }
+
+    // &:after {
+    //   content: '';
+    //   height: 100%;
+    //   width: 20px;
+    //   display: block;
+    //   background-color: #FFFFFF;
+    //   @include svg-mask;
+    //   mask-image: url(~/assets/svgs/icons/Times.svg);
+    //   -webkit-mask-image: url(~/assets/svgs/icons/Times.svg);
+    // }
+
+    // @include desktop {
+    //   display: none;
+    // }
+  }
+
+  &__filter-headline {
+    @include label;
+  }
+
+  &__filter-list {
+    list-style: none;
+
+    padding: {
+      left: 0;
+    }
+
+    margin: 0;
+
+    li {
+      margin: {
+        top: var(--ns-spacingMini1);
+        bottom: 0;
+      }
+    }
+
+    label {
+      display: flex;
+      gap: var(--ns-spacingMini1);
+      align-items: center;
+    }
+
+    input {
+      @include styled-checkbox;
+    }
+  }
+
+  &__results-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ns-spacingMinor2);
+
+    @include desktop {
+      row-gap: var(--ns-spacingMinor1);
+    }
+  }
+}

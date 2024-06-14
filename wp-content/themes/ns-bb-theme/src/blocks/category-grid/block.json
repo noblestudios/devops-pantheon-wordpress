@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/category-grid",
+  "title": "Category Grid",
+  "description": "Displays categories in a grid layout",
+  "category": "listing-blocks",
+  "icon": "slides",
+  "keywords": [
+    "list",
+    "category",
+    "categories",
+    "grid",
+    "listing"
+  ],
+  "styles": [],
+  "supports": {
+    "multiple": true,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "style": "ns-categoryGrid",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js",
+  "render": "file:./template-category-grid.php"
+}

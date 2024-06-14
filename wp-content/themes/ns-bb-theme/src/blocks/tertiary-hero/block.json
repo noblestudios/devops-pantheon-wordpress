@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/tertiary-hero",
+  "title": "Tertiary Hero",
+  "description": "Displays featured image, title, and helpful information for a miscellaneous page type.",
+  "category": "hero-blocks",
+  "icon": "",
+  "keywords": [],
+  "styles": [],
+  "supports": {
+    "multiple": false,
+    "anchor": false,
+    "align": false
+  },
+  "attributes": {
+    "heroStyle": {
+      "type": "string",
+      "default": "bg-image"
+    },
+    "backgroundImage": {
+      "type": "integer",
+      "default": 0
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "headline": {
+      "type": "string",
+      "default": ""
+    },
+    "eyebrowTag": {
+      "type": "string",
+      "default": "div"
+    },
+    "headlineTag": {
+      "type": "string",
+      "default": "h1"
+    },
+    "intro": {
+      "type": "string",
+      "default": ""
+    },
+    "links": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "editorScript": "file:./index.js",
+  "style": "ns-tertiaryHero",
+  "render": "file:./template-tertiary-hero.php"
+}

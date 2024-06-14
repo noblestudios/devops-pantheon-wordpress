@@ -1,0 +1,136 @@
+@use "../abstracts" as *;
+
+.details-image-slider {
+  position: relative;
+  overflow: hidden;
+
+  @include desktop {
+    grid-column: 2;
+    grid-row: 1/4;
+  }
+
+  &__slides {
+    flex-wrap: nowrap;
+    position: relative;
+    width: 100%;
+    display: flex;
+    aspect-ratio: 343/253;
+    max-height: 353px;
+
+    @include desktop {
+      max-height: unset;
+    }
+  }
+
+  &__slide {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.5) 7.29%,
+        rgba(0, 0, 0, 0) 20.31%,
+        rgba(0, 0, 0, 0) 79.69%,
+        rgba(0, 0, 0, 0.5) 92.71%
+      );
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: calc(50% - 22px);
+    left: 24px;
+    background-image: url(~/assets/svgs/arrows/left-line-arrow.svg);
+    filter: $filter__color-white;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &.swiper-button-disabled {
+      display: none;
+    }
+
+    @include desktop {
+      top: calc(50% - 44px);
+    }
+  }
+
+  .swiper-button-next {
+    left: unset;
+    right: 24px;
+    transform: rotate(180deg);
+  }
+
+  &__pagination {
+    padding: {
+      top: var(--ns-spacingMini1);
+      bottom: var(--ns-spacingMini1);
+    }
+
+    @include desktop {
+      padding: {
+        top: var(--ns-spacingMini2);
+        bottom: 0;
+      }
+    }
+
+    .swiper-pagination {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      align-items: center;
+
+      @include desktop {
+        gap: 24px;
+        padding: {
+          top: var(--ns-spacingMini2);
+          bottom: var(--ns-spacingMini2);
+        }
+      }
+
+      &-bullet {
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        border: 1px solid var(--ns-color-cta-secondary);
+        border-radius: 100px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          border: 1px solid var(--ns-color-interactive-hover);
+          background-color: var(--ns-color-interactive-hover);
+        }
+
+        @include desktop {
+          height: 24px;
+          width: 24px;
+        }
+
+        &-active {
+          background-color: var(--ns-color-cta-secondary);
+        }
+      }
+    }
+  }
+}

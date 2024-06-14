@@ -1,0 +1,10 @@
+import { SVG, Path } from "@wordpress/components"
+
+// https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Amore%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4024
+const more = (
+  <SVG xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+    <Path d="M380-440q17 0 28.5-11.5T420-480q0-17-11.5-28.5T380-520q-17 0-28.5 11.5T340-480q0 17 11.5 28.5T380-440Zm140 0q17 0 28.5-11.5T560-480q0-17-11.5-28.5T520-520q-17 0-28.5 11.5T480-480q0 17 11.5 28.5T520-440Zm140 0q17 0 28.5-11.5T700-480q0-17-11.5-28.5T660-520q-17 0-28.5 11.5T620-480q0 17 11.5 28.5T660-440ZM360-200q-20 0-37.5-9T294-234L120-480l174-246q11-16 28.5-25t37.5-9h400q33 0 56.5 23.5T840-680v400q0 33-23.5 56.5T760-200H360Zm400-80v-400 400Zm-400 0h400v-400H360L218-480l142 200Z" />
+  </SVG>
+)
+
+export default more

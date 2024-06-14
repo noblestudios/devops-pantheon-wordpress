@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/horizontal-anchor",
+  "title": "Horizontal Anchor",
+  "category": "widgets",
+  "description": "",
+  "keywords": [
+    "horizontal-anchor"
+  ],
+  "textdomain": "default",
+  "attributes": {
+    "anchorLinks": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": false
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "editorScript": "file:./index.js",
+  "style": "ns-horizontal-anchor",
+  "script": "ns-anchor",
+  "render": "file:./template-horizontal-anchor.php"
+}

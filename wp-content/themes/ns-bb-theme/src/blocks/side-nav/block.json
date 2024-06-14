@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/side-nav",
+  "title": "Side Nav",
+  "category": "nav-blocks",
+  "description": "Adds basic navigation to sidebar",
+  "keywords": [
+    "side nav"
+  ],
+  "textdomain": "default",
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "parentPage": {
+      "type": "object",
+      "default": {
+        "id": 0,
+        "kind": "",
+        "title": "",
+        "type": "",
+        "url": ""
+      }
+    },
+    "title": {
+      "type": "string",
+      "default": "Explore Also"
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "__unstablePasteTextInline": true,
+    "__experimentalSlashInserter": true
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./template-side-nav.php",
+  "style": "ns-sidenav",
+  "viewScript": "file:./view.js"
+}

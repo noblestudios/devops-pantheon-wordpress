@@ -1,0 +1,16 @@
+@use '../abstracts' as *;
+
+.typography-examples {
+
+  .nav-link-sec {
+    @include nav-secondary-link;
+  }
+
+  .nav-link {
+    @include nav-link;
+  }
+
+  .field-label {
+    @include field-label;
+  }
+}

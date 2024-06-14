@@ -1,0 +1,12 @@
+@use './abstracts' as *;
+@use 'properties';
+
+.mce-content-body {
+
+  font-size: var(--ns-fontSize);
+  font-family: var(--ns-fontFamily);
+  font-weight: var(--ns-fontWeight);
+  line-height: var(--ns-lineHeight);
+
+  @include wizzy;
+}

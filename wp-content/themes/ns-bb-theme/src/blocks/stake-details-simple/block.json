@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/stake-details-simple",
+  "title": "Stakeholder Details with Offer",
+  "description": "Displays stakeholder details, socials, amenities, and featured offer",
+  "category": "widgets",
+  "keywords": [],
+  "styles": [],
+  "supports": {
+    "multiple": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "detailsHeadline": {
+      "type": "string",
+      "default": "Details"
+    },
+    "detailsHeadlineTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "amenitiesHeadline": {
+      "type": "string",
+      "default": "Amenities"
+    },
+    "amenitiesHeadlineTag": {
+      "type": "string",
+      "default": "h2"
+    }
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "style": "ns-stakeDetailsSimple",
+  "editorScript": "file:./index.js",
+  "render": "file:./template-stake-details-simple.php"
+}

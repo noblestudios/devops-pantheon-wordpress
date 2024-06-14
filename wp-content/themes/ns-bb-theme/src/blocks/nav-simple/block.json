@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/nav-simple",
+  "title": "Nav Simple",
+  "description": "",
+  "category": "nav-blocks",
+  "icon": "",
+  "keywords": [
+    "site",
+    "header",
+    "navigation"
+  ],
+  "styles": [],
+  "supports": {
+    "multiple": true,
+    "anchor": false,
+    "align": false
+  },
+  "attributes": {
+    "navMobileCTA": {
+      "type": "boolean",
+      "default": false
+    },
+    "navMobilePhone": {
+      "type": "boolean",
+      "default": false
+    },
+    "navCTALink": {
+      "type": "object",
+      "default": false
+    },
+    "navCTALabel": {
+      "type": "string",
+      "default": ""
+    },
+    "desktopImage": {
+      "type": "integer",
+      "default": 0
+    },
+    "mobileImage": {
+      "type": "integer",
+      "default": 0
+    },
+    "navDeskAlign": {
+      "type": "string",
+      "default": "right"
+    },
+    "searchHeadline": {
+      "type": "string",
+      "default": "What Are You Looking For?"
+    },
+    "searchPlaceholder": {
+      "type": "string",
+      "default": "Enter Your Search Here"
+    },
+    "recommendedHeadline": {
+      "type": "string",
+      "default": "Recommended Pages"
+    },
+    "recommendedPages": {
+      "type": "array",
+      "default": []
+    },
+    "isExample": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "isExample": true
+    },
+    "viewportWidth": 1440
+  },
+  "render": "file:./template-nav-simple.php",
+  "editorScript": "file:./index.js",
+  "style": [
+    "ns-navSimple",
+    "ns-alertBanner",
+    "ns-searchModal"
+  ],
+  "script": "ns-navHeader-js"
+}

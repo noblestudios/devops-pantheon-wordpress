@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/stakeholder-hero",
+  "title": "Stakeholder Hero",
+  "description": "Displays stakeholder featured image, title, and contact info",
+  "category": "hero-blocks",
+  "icon": "",
+  "keywords": [],
+  "styles": [],
+  "supports": {
+    "multiple": false,
+    "anchor": false,
+    "align": false
+  },
+  "attributes": {
+    "backgroundImage": {
+      "type": "integer",
+      "default": 0
+    },
+    "headline": {
+      "type": "string",
+      "default": ""
+    },
+    "headlineTag": {
+      "type": "string",
+      "default": "h1"
+    },
+    "offer": {
+      "type": "integer",
+      "default": 0
+    },
+    "allOffers": {
+      "type": "boolean",
+      "default": false
+    },
+    "anchorLinks": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "example": {
+    "attributes": {
+      "headline": "Nulla amet non officia"
+    },
+    "viewportWidth": 1440
+  },
+  "style": "ns-stakeholderHero",
+  "editorScript": "file:./index.js",
+  "render": "file:./template-stakeholder-hero.php"
+}

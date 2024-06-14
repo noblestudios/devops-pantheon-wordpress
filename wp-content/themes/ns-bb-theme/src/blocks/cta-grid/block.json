@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/cta-grid",
+  "title": "CTA Grid",
+  "category": "widgets",
+  "description": "Basic cta grid widget",
+  "keywords": [
+    "cta-grid"
+  ],
+  "textdomain": "default",
+  "attributes": {
+    "linksTop": {
+      "type": "array",
+      "default": []
+    },
+    "anchor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": false
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "editorScript": "file:./index.js",
+  "style": "ns-cta-grid",
+  "render": "file:./template-cta-grid.php"
+}

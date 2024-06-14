@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/form-hero",
+  "title": "Form Hero",
+  "description": "Hero with contact form",
+  "category": "hero-blocks",
+  "icon": "",
+  "keywords": [],
+  "styles": [],
+  "supports": {
+    "multiple": false,
+    "anchor": false,
+    "align": false
+  },
+  "attributes": {
+    "backgroundImage": {
+      "type": "integer",
+      "default": 0
+    },
+    "headline": {
+      "type": "string",
+      "default": ""
+    },
+    "headlineTag": {
+      "type": "string",
+      "default": "h1"
+    },
+    "subHeadline": {
+      "type": "string",
+      "default": ""
+    },
+    "subHeadlineTag": {
+      "type": "string",
+      "default": "div"
+    },
+    "cta1": {
+      "type": "object",
+      "default": {}
+    },
+    "cta2": {
+      "type": "object",
+      "default": {}
+    }
+  },
+  "example": {
+    "attributes": {
+      "headline": "Nulla amet non officia",
+      "subHeadline": "Ex excepteur tempor et"
+    },
+    "viewportWidth": 1440
+  },
+  "style": "ns-formHero",
+  "editorScript": "file:./index.js",
+  "render": "file:./template-form-hero.php"
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/footer6",
+  "title": "Site Footer 6",
+  "description": "",
+  "category": "nav-blocks",
+  "icon": "",
+  "keywords": [
+    "site",
+    "footer",
+    "navigation"
+  ],
+  "styles": [],
+  "supports": {
+    "anchor": false,
+    "align": false
+  },
+  "attributes": {
+    "logo": {
+      "type": "integer",
+      "default": 0
+    },
+    "copyrightText": {
+      "type": "string",
+      "default": "Business Name"
+    },
+    "showPrivacy": {
+      "type": "boolean",
+      "default": true
+    },
+    "privacyLink": {
+      "type": "object",
+      "default": false
+    },
+    "showTerms": {
+      "type": "boolean",
+      "default": true
+    },
+    "termsLink": {
+      "type": "object",
+      "default": false
+    },
+    "ctaImage": {
+      "type": "integer",
+      "default": 0
+    },
+    "ctaHeadline": {
+      "type": "string",
+      "default": "CTA Headline"
+    },
+    "ctaHeadlineTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "ctaIntro": {
+      "type": "string",
+      "default": "CTA Intro"
+    },
+    "ctaButtonLabel": {
+      "type": "string",
+      "default": "CTA Label"
+    },
+    "ctaButtonLink": {
+      "type": "object",
+      "default": false
+    },
+    "formHeadline": {
+      "type": "string",
+      "default": "Sign Up"
+    },
+    "formHeadlineTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "formIntro": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "render": "file:./template-footer-6.php",
+  "style": "ns-footer6",
+  "editorScript": "file:./index.js"
+}

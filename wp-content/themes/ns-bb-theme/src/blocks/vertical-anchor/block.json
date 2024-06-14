@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/vertical-anchor",
+  "title": "Vertical Anchor",
+  "category": "widgets",
+  "description": "",
+  "keywords": [
+    "vertical-anchor"
+  ],
+  "textdomain": "default",
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "anchorLinks": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": false
+  },
+  "example": {
+    "attributes": {
+      "anchorLinks": [
+        {"text": "Ut mollit consequat"},
+        {"text": "Reprehenderit nisi"},
+        {"text": "Velit magna elit sunt"},
+        {"text": "Elit id do non officia"},
+        {"text": "Cupidatat officia tempor"}
+      ]
+    },
+    "viewportWidth": 1440
+  },
+  "editorScript": "file:./index.js",
+  "style": "ns-vertical-anchor",
+  "render": "file:./template-vertical-anchor.php"
+}

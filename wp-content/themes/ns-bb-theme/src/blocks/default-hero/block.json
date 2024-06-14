@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/default-hero",
+  "title": "Default Hero",
+  "description": "Displays featured image, title, and excerpt.",
+  "category": "hero-blocks",
+  "icon": "",
+  "keywords": [],
+  "styles": [],
+  "supports": {
+    "multiple": true,
+    "anchor": false,
+    "align": false
+  },
+  "attributes": {
+    "backgroundImage": {
+      "type": "integer",
+      "default": 0
+    },
+    "headline": {
+      "type": "string",
+      "default": ""
+    },
+    "headlineTag": {
+      "type": "string",
+      "default": "h1"
+    },
+    "showExcerpt": {
+      "type": "boolean",
+      "default": true
+    },
+    "excerptOverride": {
+      "type": "string",
+      "default": ""
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "center"
+    }
+  },
+  "example": {
+    "attributes": {
+      "headline": "Voluptate enim Lorem",
+      "excerptOverride": "Quis officia enim ipsum pariatur velit proident. Dolore mollit culpa sunt enim dolor aute. Deserunt tempor enim pariatur aliqua reprehenderit quis eiusmod velit sit labore voluptate ut incididunt."
+    },
+    "viewportWidth": 1440
+  },
+  "style": "ns-defaultHero",
+  "editorScript": "file:./index.js",
+  "render": "file:./template-default-hero.php"
+}

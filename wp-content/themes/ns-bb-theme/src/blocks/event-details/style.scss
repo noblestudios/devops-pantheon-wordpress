@@ -1,0 +1,191 @@
+@use "../../styles/abstracts" as *;
+
+.wp-block-ns-event-details {
+  padding: {
+    top: var(--ns-spacingMajor2);
+    bottom: var(--ns-spacingMajor2);
+  }
+
+  &__grid {
+    @include wideSize;
+
+    @include desktop {
+      display: grid;
+      grid-template-columns: 1fr 591px;
+      grid-template-rows: auto auto 1fr;
+      column-gap: 136px;
+
+      &.--has-slider {
+        grid-template-rows: auto auto 1fr auto;
+
+        .wp-block-ns-event-details__map {
+          grid-column: 1/3;
+          grid-row: 4;
+          height: 440px;
+
+          margin: {
+            top: var(--ns-spacingMajor2);
+          }
+        }
+      }
+    }
+  }
+
+  &__intro {
+    margin: {
+      top: var(--ns-spacingMajor2);
+    }
+
+    @include desktop {
+      grid-column: 1;
+      grid-row: 1;
+
+      margin: {
+        top: 0;
+      }
+    }
+
+    &-categories {
+      display: none;
+
+      @include desktop {
+        display: block;
+        @include text-micro;
+
+        margin: {
+          top: 8px;
+        }
+      }
+    }
+
+    &-body {
+      margin: {
+        top: var(--ns-spacingMini1);
+      }
+    }
+  }
+
+  ul.wp-block-ns-event-details__socials {
+    margin: {
+      top: 16px;
+      bottom: 0;
+    }
+
+    padding: {
+      left: 0;
+    }
+
+    display: flex;
+    gap: 24px;
+    list-style: none;
+
+    @include desktop {
+      grid-column: 1;
+      grid-row: 2;
+
+      margin: {
+        top: var(--ns-spacingMinor1);
+      }
+    }
+
+    li {
+      margin: 0;
+      width: 24px;
+      height: 24px;
+      position: relative;
+
+      a {
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: $filter__color-interactive-sec;
+        transition: filter 0.2s;
+
+        &:hover {
+          filter: $filter__color-interactive-sec-hover;
+        }
+
+        &.\--facebook {
+          background-image: url(~/assets/svgs/socials/facebook.svg);
+        }
+
+        &.\--google {
+          background-image: url(~/assets/svgs/socials/google.svg);
+        }
+
+        &.\--twitter {
+          background-image: url(~/assets/svgs/socials/twitter.svg);
+        }
+
+        &.\--youtube {
+          background-image: url(~/assets/svgs/socials/youtube.svg);
+        }
+
+        // Just in case we need Pinterest
+        // &.\--pinterest {
+        //   background-image: url(~/assets/svgs/socials/pinterest.svg);
+        // }
+
+        &.\--linkedin {
+          background-image: url(~/assets/svgs/socials/linkedin.svg);
+        }
+
+        &.\--instagram {
+          background-image: url(~/assets/svgs/socials/instagram.svg);
+        }
+
+        &.\--vimeo {
+          background-image: url(~/assets/svgs/socials/vimeo.svg);
+        }
+      }
+    }
+  }
+
+  &__cal-links {
+    margin: {
+      top: 16px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include desktop {
+      grid-column: 1;
+      grid-row: 3;
+
+      margin: {
+        top: var(--ns-spacingMinor1);
+      }
+    }
+  }
+
+  &__map {
+    margin: {
+      top: var(--ns-spacingMajor2);
+    }
+
+    height: 343px;
+    position: relative;
+
+    @include desktop {
+      grid-column: 2;
+      grid-row: 1/4;
+      height: 450px;
+
+      margin: {
+        top: 0;
+      }
+    }
+  }
+
+  &__slider {
+    @include desktop {
+      grid-column: 2;
+      grid-row: 1/4;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+@use '../abstracts' as *;
+
+.alert-banners {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  @include desktop {
+    position: static;
+  }
+}
+.alert-banner {
+  display: none;
+  background-color: var(--ns-color-interactive);
+
+  border-top: 1px solid #fff;
+  @include desktop {
+    border-top: 0;
+  }
+
+  &.\--is-shown {
+    display: block;
+  }
+
+  &.\--info {
+    background-color: var(--ns-color-background);
+  }
+  &__wrapper {
+
+  }
+  &__body {
+    @include navSize;
+    padding: {
+      top: 21px;
+      bottom: 21px;
+    }
+    display: flex;
+    align-items: center;
+    & > * {
+      @include text-micro;
+    }
+    @include desktop {
+      padding: {
+        top: 11px;
+        bottom: 11px;
+      }
+    }
+
+    p {
+      margin: {
+        top: 0;
+        bottom: 0;
+        right: 24px;
+        left: 0;
+      }
+      color: $color-body-2;
+
+      a {
+        color: $color-body-2;
+        text-decoration: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    @include desktop {
+      &:before {
+        content: '';
+        flex-shrink: 0;
+        height: 18px;
+        width: 20px;
+        background-image: url(~/assets/svgs/icons/Emergency-Icon.svg);
+        background-repeat: no-repeat;
+        margin: {
+          right: 24px;
+        }
+        background-size: 100%;
+        filter: $filter__color-body-dark;
+
+        .\--info & {
+          height: 20px;
+          background-image: url(~/assets/svgs/icons/Info-Icon.svg);
+        }
+      }
+    }
+  }
+
+  &__close {
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    height: 12px;
+    width: 12px;
+    padding: 0;
+    background-image: url(~/assets/svgs/icons/Times.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    flex-basis: 12px;
+    flex-shrink: 0;
+    cursor: pointer;
+    filter: $filter__color-body-dark;
+    transition: filter $transition;
+    margin: {
+      left: auto;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      filter: $filter__color-interactive-hover;
+
+      .\--info & {
+        filter: $filter__color-interactive;
+      }
+    }
+  }
+}

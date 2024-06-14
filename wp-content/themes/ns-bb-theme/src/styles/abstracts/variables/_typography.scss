@@ -1,0 +1,130 @@
+@use 'sass:math';
+@use '../functions' as *;
+@use 'colors' as *;
+
+$default_font_family: 'Roboto', arial, sans-serif;
+$headline_font_family: 'Roboto', arial, sans-serif;
+
+// Default Paragraph
+$text-fontSize-normal: toRem(20px);
+$text-lineHeight-normal: 1.5;
+$text-fontWeight-normal: 400;
+$text-fontWeight-normal-mbl: 400;
+$text-fontSize-normal-mbl: toRem(16px);
+
+// Microcopy Paragraph
+$text-fontSize-micro: toRem(16px);
+$text-lineHeight-micro: 1;
+$text-fontWeight-micro: 400;
+$text-fontWeight-micro-mbl: 400;
+$text-fontSize-micro-mbl: toRem(14px);
+
+// XXL Headline (H1)
+$hl-xxl-fontFamily: $headline_font_family;
+$hl-xxl-color: var(--ns-color-hl-primary);
+$hl-xxl-fontSize: toRem(64px);
+$hl-xxl-lineHeight: 1;
+$hl-xxl-fontSize-mbl: toRem(40px);
+$hl-xxl-fontWeight: 900;
+$hl-xxl-fontWeight-mbl: 900;
+$hl-xxl-letterSpacing: normal;
+$hl-xxl-textTransform: none;
+$hl-xxl-textTransform-mbl: none;
+
+// XL Headline (H2)
+$hl-xl-fontFamily: $headline_font_family;
+$hl-xl-color: var(--ns-color-hl-secondary);
+$hl-xl-fontSize: toRem(48px);
+$hl-xl-lineHeight: 1;
+$hl-xl-fontSize-mbl: toRem(32px);
+$hl-xl-fontWeight: 500;
+$hl-xl-fontWeight-mbl: 500;
+$hl-xl-letterSpacing: normal;
+$hl-xl-textTransform: none;
+$hl-xl-textTransform-mbl: none;
+
+// L Headline (H3)
+$hl-l-fontFamily: $headline_font_family;
+$hl-l-color: var(--ns-color-hl-primary);
+$hl-l-fontSize: toRem(40px);
+$hl-l-lineHeight: 1;
+$hl-l-fontSize-mbl: toRem(28px);
+$hl-l-fontWeight: 900;
+$hl-l-fontWeight-mbl: 900;
+$hl-l-letterSpacing: normal;
+$hl-l-textTransform: none;
+$hl-l-textTransform-mbl: none;
+
+// M Headline (H4)
+$hl-m-fontFamily: $headline_font_family;
+$hl-m-color: var(--ns-color-hl-secondary);
+$hl-m-fontSize: toRem(32px);
+$hl-m-lineHeight: 1;
+$hl-m-fontSize-mbl: toRem(24px);
+$hl-m-fontWeight: 500;
+$hl-m-fontWeight-mbl: 500;
+$hl-m-letterSpacing: normal;
+$hl-m-textTransform: none;
+$hl-m-textTransform-mbl: none;
+
+// S Headline (H5)
+$hl-s-fontFamily: $headline_font_family;
+$hl-s-color: var(--ns-color-hl-primary);
+$hl-s-fontSize: toRem(28px);
+$hl-s-lineHeight: 1;
+$hl-s-fontSize-mbl: toRem(20px);
+$hl-s-fontWeight: 900;
+$hl-s-fontWeight-mbl: 900;
+$hl-s-letterSpacing: normal;
+$hl-s-textTransform: none;
+$hl-s-textTransform-mbl: none;
+
+// XS headline (H6)
+$hl-xs-fontFamily: $headline_font_family;
+$hl-xs-color: var(--ns-color-hl-secondary);
+$hl-xs-fontSize: toRem(24px);
+$hl-xs-lineHeight: 1;
+$hl-xs-fontSize-mbl: toRem(18px);
+$hl-xs-fontWeight: 500;
+$hl-xs-fontWeight-mbl: 500;
+$hl-xs-letterSpacing: normal;
+$hl-xs-textTransform: none;
+$hl-xs-textTransform-mbl: none;
+
+// Eyebrow
+$eyebrow-fontFamily: $headline_font_family;
+$eyebrow-color: var(--ns-color-hl-primary);
+$eyebrow-fontSize: toRem(18px);
+$eyebrow-lineHeight: 1;
+$eyebrow-fontSize-mbl: toRem(14px);
+$eyebrow-fontWeight: 900;
+$eyebrow-letterSpacing: normal;
+
+// Link
+
+// Form Labels
+$label-fontFamily: $default_font_family;
+$label-color: var(--ns-color-hl-primary);
+$label-fontSize: toRem(20px);
+$label-lineHeight: 1;
+$label-fontSize-mbl: toRem(16px);
+$label-fontWeight: 900;
+$label-letterSpacing: normal;
+
+// Primary Nav Links
+$nav-fontFamily: $default_font_family;
+$nav-color: var(--ns-color-interactive);
+$nav-fontSize: toRem(16px);
+$nav-lineHeight: 1;
+$nav-fontSize-mbl: toRem(16px);
+$nav-fontWeight: 900;
+$nav-letterSpacing: normal;
+
+// Secondary Nav Links
+$nav-secondary-fontFamily: $default_font_family;
+$nav-secondary-color: var(--ns-color-interactive);
+$nav-secondary-fontSize: toRem(16px);
+$nav-secondary-lineHeight: 1;
+$nav-secondary-fontSize-mbl: toRem(14px);
+$nav-secondary-fontWeight: 400;
+$nav-secondary-letterSpacing: normal;

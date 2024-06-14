@@ -1,0 +1,32 @@
+@use '../../styles/abstracts' as *;
+
+.wp-block-ns-stake-featured-topics {
+  margin: {
+    top: var(--ns-spacingMajor2);
+    bottom: var(--ns-spacingMajor2);
+  }
+
+  &__grid {
+    @include wideSize;
+  }
+
+  &__image-wrap {
+    height: 125px;
+    position: relative;
+    overflow: hidden;
+
+    margin: {
+      bottom: var(--ns-spacingMajor2);
+    }
+
+    @include desktop {
+      height: 443px;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

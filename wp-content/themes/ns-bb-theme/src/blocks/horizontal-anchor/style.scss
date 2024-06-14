@@ -1,0 +1,51 @@
+@use '../../styles/abstracts' as *;
+
+.wp-block-ns-horizontal-anchor {
+  background-color: $color-dark-background;
+
+  &__wrapper {
+    @include wideSize;
+  }
+
+  &__items {
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    @include desktop {
+      overflow: unset;
+      gap: 32px;
+    }
+
+  }
+
+  &__item {
+    list-style: none;
+    margin: 0;
+  }
+
+  &__link {
+
+    padding: {
+      top: 16px;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+    }
+
+    @include desktop {
+      padding: {
+        top: 24px;
+        bottom: 24px;
+        left: 0;
+        right: 0;
+      }
+    }
+
+    @include primary-nav;
+  }
+}

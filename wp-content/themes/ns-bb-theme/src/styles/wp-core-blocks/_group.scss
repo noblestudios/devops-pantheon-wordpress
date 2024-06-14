@@ -1,0 +1,11 @@
+@use "../abstracts" as *;
+
+.wp-block-group {
+  &.--background-two {
+    background-color: var(--ns-color-background);
+  }
+
+  &.--styleguide-group {
+    background-color: #f5f5f5;
+  }
+}

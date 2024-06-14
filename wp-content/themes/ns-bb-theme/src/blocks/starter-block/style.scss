@@ -1,0 +1,21 @@
+@use '../../styles/abstracts' as *;
+
+.wp-block-ns-starter-block {
+
+  &__grid {
+    @include wideSize;
+    display: flex;
+    gap: var(--ns-spacingMajor2);
+
+  }
+
+  &__left-col {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
+  &__right-col {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+}

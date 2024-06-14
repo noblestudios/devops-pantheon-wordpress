@@ -1,0 +1,366 @@
+@use '../../styles/abstracts' as *;
+
+$background-color: #FFFFFF;
+
+.wp-block-ns-site-footer6 {
+  background-color: $background-color;
+
+  &__wrapper {
+    @include navSize;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    gap: 40px;
+
+    padding: {
+      top: 40px;
+      bottom: 40px;
+    }
+
+    @include desktop {
+      gap: 0;
+
+      padding: {
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__extras {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include desktop {
+      flex-direction: row;
+      gap: var(--ns-spacingMajor2);
+
+      padding: {
+        top: 56px;
+        bottom: 56px;
+      }
+    }
+  }
+
+  &__cta-block {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--ns-spacingMinor2);
+
+    @include desktop {
+      flex-direction: row;
+      text-align: left;
+      flex-basis: 0;
+      flex-grow: 1;
+    }
+  }
+
+  &__cta-block-image {
+    width: 132px;
+    height: 132px;
+    position: relative;
+    flex-shrink: 0;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__cta-block-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__cta-block-title {
+    @include headline-s;
+  }
+
+  &__cta-block-text {
+    @include text-micro;
+  }
+
+  &__cta-block-link {
+    @include tertiary-button;
+    align-self: center;
+
+    @include desktop {
+      align-self: flex-start;
+    }
+  }
+
+  &__newsletter {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include desktop {
+      text-align: left;
+      flex-basis: 0;
+      flex-grow: 1;
+    }
+  }
+
+  &__newsletter-title {
+    @include headline-s;
+  }
+
+  &__newsletter-blurb {
+    @include text-micro;
+
+    &>* {
+      @include text-micro;
+    }
+  }
+
+  &__nav {
+
+    @include desktop {
+      padding: {
+        top: 56px;
+        bottom: 56px;
+      }
+
+      border-top: 1px solid $color-dark-background;
+    }
+  }
+
+  &__logo {
+    justify-content: center;
+
+    margin: {
+      bottom: 8px;
+    }
+
+    @include desktop {
+      margin: {
+        bottom: 0;
+      }
+    }
+
+    img {
+      max-height: 78px;
+      max-width: 150px;
+      display: block;
+
+      margin: {
+        left: auto;
+        right: auto;
+      }
+
+      @include desktop {
+        margin: {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  &__contact-socials {
+    margin: {
+      top: 8px;
+      bottom: 0;
+    }
+
+    @include desktop {
+      margin: {
+        top: 0;
+      }
+    }
+  }
+
+  &__contact-socials-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+    padding: {
+      left: 0;
+    }
+
+    margin: {
+      top: 0;
+      bottom: 0;
+    }
+
+    @include desktop {
+      justify-content: flex-end;
+      gap: 8px;
+    }
+  }
+
+  &__contact-social-item {
+    margin: {
+      bottom: 0;
+    }
+  }
+
+  &__contact-social-link {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    color: transparent;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      @include color-interactive-filter;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: transparent;
+    }
+
+    &.\--facebook {
+      &::after {
+        background-image: url('~/assets/svgs/socials/facebook.svg');
+      }
+    }
+
+    &.\--linkedin {
+      &::after {
+        background-image: url('~/assets/svgs/socials/linkedin.svg');
+      }
+    }
+
+    &.\--twitter {
+      &::after {
+        background-image: url('~/assets/svgs/socials/twitter.svg');
+      }
+    }
+
+    &.\--google {
+      &::after {
+        background-image: url('~/assets/svgs/socials/google.svg');
+      }
+    }
+
+    &.\--youtube {
+      &::after {
+        background-image: url('~/assets/svgs/socials/youtube.svg');
+      }
+    }
+
+    &.\--instagram {
+      &::after {
+        background-image: url('~/assets/svgs/socials/instagram.svg');
+      }
+    }
+  }
+
+
+
+  &__nav-items {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    list-style: none;
+    gap: 32px;
+
+    padding: {
+      left: 0;
+    }
+
+    margin: {
+      top: 0;
+      bottom: 0;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__nav-item {
+    align-self: center;
+
+    margin: {
+      bottom: 0;
+    }
+  }
+
+  &__nav-item-link {
+    display: block;
+    @include primary-nav;
+    line-height: 1;
+    color: var(--ns-color-body);
+  }
+
+  &__legal {
+    @include navSize;
+    border-top: 1px solid $color-dark-background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--ns-spacingMini1);
+    line-height: 1.25;
+    font-weight: 400;
+
+    padding: {
+      top: 32px;
+      bottom: 32px;
+    }
+
+    @include desktop {
+      align-items: unset;
+      flex-direction: row;
+      gap: 0;
+      @include text-micro;
+
+      padding: {
+        top: 40px;
+        bottom: 40px;
+      }
+    }
+
+    a {
+      color: var(--ns-color-body);
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: var(--ns-color-interactive);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__copyright-dot {
+    display: none;
+
+    @include desktop {
+      display: inline;
+    }
+  }
+
+  &__copyright-links {}
+
+  &__legal-noble {
+
+    @include desktop {
+      flex-grow: 1;
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,103 @@
+@use '../../styles/abstracts' as *;
+
+.wp-block-ns-accordion {
+  &__wrapper {
+
+    // removing widths for now, appropriate width depends on parent thsi is inserted into
+    // @include wideSize;
+    padding: {
+      top: 68px;
+      bottom: 42px;
+    }
+  }
+
+  &__item-toggle {
+    @include headline-m;
+    text-align: left;
+    color: $color-hl-primary;
+    background-color: transparent;
+    width: 100%;
+
+    padding: {
+      bottom: 24px;
+      right: 30px;
+    }
+
+    border: 0;
+    cursor: pointer;
+    position: relative;
+
+    @include desktop {
+      padding: {
+        bottom: 28px;
+        right: 50px;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 10px);
+      right: 0;
+      width: 20px;
+      height: 20px;
+
+      background-image: url('~/assets/svgs/icons/Plus.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: $filter__color-interactive;
+
+      @include desktop {
+        top: calc(50% - 20px);
+        right: 0;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+  &__items {
+    padding: {
+      left: 0;
+    }
+  }
+
+  &__item {
+    list-style: none;
+
+    padding: {
+      left: 0;
+      bottom: 12px;
+    }
+
+    margin: {
+      bottom: 20px;
+    }
+
+    border-bottom: 1px solid $color-hl-secondary;
+
+    &.--open {
+      .wp-block-ns-accordion__item-wrapper {
+        grid-template-rows: 1fr;
+      }
+
+      .wp-block-ns-accordion__item-toggle {
+
+        &::after {
+          background-image: url('~/assets/svgs/icons/Minus.svg');
+        }
+      }
+    }
+  }
+
+  &__item-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-in-out;
+  }
+
+  &__item-content {
+    overflow: hidden;
+  }
+}

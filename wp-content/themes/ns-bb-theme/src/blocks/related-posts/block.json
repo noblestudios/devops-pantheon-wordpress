@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/related-posts",
+  "title": "Related Posts",
+  "description": "",
+  "category": "widgets",
+  "icon": "",
+  "keywords": [
+    "links",
+    "related"
+  ],
+  "supports": {
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "headline": {
+      "type": "string",
+      "default": ""
+    },
+    "headlineTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "postTypes": {
+      "type": "object",
+      "default": {
+        "post": {},
+        "page": {
+          "orderby": "date",
+          "order": "desc"
+        },
+        "stakeholder": {
+          "taxonomy": "amenities",
+          "orderby": "rand",
+          "order": "asc"
+        },
+        "tribe_events": {
+          "taxonomy": "tribe_events_cat",
+          "orderby": "rand",
+          "order": "asc"
+        }
+      }
+    }
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "style": [
+    "ns-relatedPosts",
+    "ns-paginatedResult",
+    "ns-listing"
+  ],
+  "render": "file:./template-related-posts.php",
+  "editorScript": "file:./index.js"
+}

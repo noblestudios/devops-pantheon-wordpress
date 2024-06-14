@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/service-card",
+  "title": "Service Card",
+  "category": "widgets",
+  "description": "",
+  "keywords": [
+    "services"
+  ],
+  "textdomain": "default",
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "cardImage": {
+      "type": "integer",
+      "default": 0
+    },
+    "headline": {
+      "type": "string",
+      "default": ""
+    },
+    "intro": {
+      "type": "string",
+      "default": ""
+    },
+    "links": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": false
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./template-service-card.php",
+  "style": "ns-services"
+}

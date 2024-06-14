@@ -1,0 +1,54 @@
+@use '../../styles/abstracts' as *;
+
+.wp-block-ns-vertical-anchor {
+
+  &__wrapper {
+
+  }
+
+  &__items {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: {
+      left: 0;
+      top: 24px;
+      bottom: 24px;
+    }
+    list-style: none;
+
+    @include desktop {
+      gap: 16px;
+      padding: {
+        top: 24px;
+        bottom: 24px;
+      }
+    }
+  }
+
+  &__item {
+    display: block;
+    list-style: none;
+    border-bottom: 1px solid $color-hl-secondary;
+    padding: {
+      bottom: 8px;
+    }
+
+    @include desktop {
+      padding: {
+        bottom: 16px;
+      }
+    }
+  }
+
+  &__link {
+    // padding: {
+    //   top: 0;
+    //   bottom: 16px;
+    //   left: 0;
+    //   right: 0;
+    // }
+  }
+}

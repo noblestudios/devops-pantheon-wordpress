@@ -1,0 +1,226 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/listing",
+  "title": "Listings with Filter",
+  "category": "listing-blocks",
+  "description": "Adds basic listings with filter functionality",
+  "keywords": [
+    "listing",
+    "filter"
+  ],
+  "icon": "",
+  "textdomain": "default",
+  "supports": {
+    "multiple": true,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "headline": {
+      "type": "string",
+      "default": "Recent Articles"
+    },
+    "titleStyle": {
+      "type": "string",
+      "default": "--hl-xl"
+    },
+    "headlineTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "filterStyle": {
+      "type": "string",
+      "default": "select"
+    },
+    "prepopulateResults": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoSubmit": {
+      "type": "boolean",
+      "default": false
+    },
+    "noResultsText": {
+      "type": "string",
+      "default": "No results matching your search were found."
+    },
+    "postType": {
+      "type": "string",
+      "default": "post"
+    },
+    "defaultSort": {
+      "type": "string",
+      "default": "date"
+    },
+    "preSelectedTaxonomy": {
+      "type": "string",
+      "default": ""
+    },
+    "preSelectedTerm": {
+      "type": "string",
+      "default": ""
+    },
+    "perPage": {
+      "type": "string",
+      "default": "12"
+    },
+    "showFilters": {
+      "type": "array",
+      "default": []
+    },
+    "hideSort": {
+      "type": "boolean",
+      "default": false
+    },
+    "hideResultsCount": {
+      "type": "boolean",
+      "default": false
+    },
+    "hidePagination": {
+      "type": "boolean",
+      "default": false
+    },
+    "availablePostTypes": {
+      "type": "object",
+      "default": {
+        "post": {
+          "name": "Post",
+          "taxonomies": [
+            "category"
+          ],
+          "sorts": [
+            "date",
+            "title"
+          ]
+        },
+        "page": {
+          "name": "Page",
+          "taxonomies": [],
+          "sorts": [
+            "title"
+          ]
+        },
+        "stakeholder": {
+          "name": "Stakeholder",
+          "taxonomies": [
+            "stakeholder_cat",
+            "amenities"
+          ],
+          "sorts": [
+            "random",
+            "title"
+          ]
+        },
+        "tribe_events": {
+          "name": "Events",
+          "taxonomies": [
+            "tribe_events_cat"
+          ],
+          "sorts": [
+            "event_date",
+            "title"
+          ],
+          "searchParams": {
+            "start_date": {
+              "label": "Start Date",
+              "type": "date"
+            },
+            "end_date": {
+              "label": "End Date",
+              "type": "date"
+            }
+          }
+        }
+      }
+    },
+    "sortingOptions": {
+      "type": "object",
+      "default": {
+        "date": {
+          "label": "Date",
+          "order": "desc"
+        },
+        "title": {
+          "label": "Title",
+          "order": "asc"
+        },
+        "random": {
+          "label": "Random",
+          "order": "asc"
+        },
+        "event_date": {
+          "label": "Date",
+          "order": "asc"
+        }
+      }
+    },
+    "taxFilterOptions": {
+      "type": "object",
+      "default": {
+        "categories": {
+          "label": "Categories"
+        },
+        "category": {
+          "label": "Categories"
+        },
+        "stakeholder_cat": {
+          "label": "Categories"
+        },
+        "tribe_events_cat": {
+          "label": "Categories"
+        },
+        "amenities": {
+          "label": "Amenities"
+        }
+      }
+    },
+    "enabledFields": {
+      "type": "array",
+      "default": [
+        "titleStyle",
+        "prepopulateResults",
+        "autoSubmit",
+        "hideResultsCount",
+        "hidePagination"
+      ]
+    },
+    "isCheckboxVariation": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "variations": [
+    {
+      "name": "listings-checkbox",
+      "title": "Listings with Checkbox Filters",
+      "attributes": {
+        "isCheckboxVariation": true,
+        "autoSubmit": true,
+        "enabledFields": [
+          "titleStyle",
+          "prepopulateResults",
+          "hideResultsCount",
+          "hidePagination"
+        ]
+      },
+      "isActive": [
+        "isCheckboxVariation"
+      ]
+    }
+  ],
+  "render": "file:./template-listing.php",
+  "style": [
+    "ns-listing",
+    "ns-pageNavigation"
+  ],
+  "viewScript": [
+    "wp-api",
+    "file:./view.js"
+  ],
+  "editorScript": "file:./index.js"
+}

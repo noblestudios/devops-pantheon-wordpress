@@ -1,0 +1,27 @@
+@use '../../styles/abstracts' as *;
+
+.svg-list {
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  &__item {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-Large);
+    gap: 16px;
+    align-items: center;
+
+    img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+}

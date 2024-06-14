@@ -1,0 +1,124 @@
+@use '../../styles/abstracts' as *;
+
+$background-color: #FFFFFF;
+
+.wp-block-ns-landing-footer {
+  background-color: $background-color;
+
+  &__wrapper {
+    @include navSize;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+
+    padding: {
+      bottom: 40px;
+      top: 40px;
+    }
+
+    position: relative;
+
+    @include desktop {
+      flex-direction: row;
+      gap: 16px;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include desktop {
+      flex-direction: row;
+      margin: {
+        left: auto;
+      }
+    }
+  }
+
+  &__cta {
+    text-align: center;
+  }
+
+  &__logo {
+
+    img,
+    svg {
+      max-height: 78px;
+      max-width: 150px;
+      display: block;
+
+      margin: {
+        left: auto;
+        right: auto;
+      }
+
+      @include desktop {
+        margin: {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  &__legal {
+    @include navSize;
+    border-top: 1px solid $color-dark-background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--ns-spacingMini1);
+    line-height: 1.25;
+    font-weight: 400;
+
+    padding: {
+      top: 32px;
+      bottom: 32px;
+    }
+
+    @include desktop {
+      align-items: unset;
+      flex-direction: row;
+      gap: 0;
+      @include text-micro;
+
+      padding: {
+        top: 40px;
+        bottom: 40px;
+      }
+    }
+
+    a {
+      color: var(--ns-color-body);
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: var(--ns-color-interactive);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__copyright-dot {
+    display: none;
+
+    @include tablet {
+      display: inline;
+    }
+  }
+
+  &__copyright-links {}
+
+  &__legal-noble {
+
+    @include desktop {
+      flex-grow: 1;
+      text-align: right;
+    }
+  }
+}

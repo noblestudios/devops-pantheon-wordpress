@@ -1,0 +1,84 @@
+@use '../abstracts' as *;
+
+.wp-block-quote {
+  border-left: none;
+
+  > * {
+    text-align: center;
+    display: block;
+    padding: {
+      left: var(--ns-gutter);
+      right: var(--ns-gutter);
+    }
+  }
+
+  p {
+    font-style: italic;
+    font-weight: 500;
+    font-size: toRem(36px);
+    line-height: 1.25;;
+    position: relative;
+
+    &:before {
+      content: "\201C";
+      top: -0.2em;
+      position: absolute;
+      left: -10px;
+      font-size: 100px;
+
+      @include desktop {
+        left: calc(var(--ns-gutter) - 100px);
+      }
+    }
+
+    &:after {
+      content: "\201D";
+      top: -0.2em;
+      position: absolute;
+      right: -10px;
+      font-size: 100px;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+      @include desktop {
+        right: calc(var(--ns-gutter) - 100px);
+      }
+    }
+  }
+
+  cite {
+    position: relative;
+    @include text-normal;
+    margin: {
+      top: 26px;
+      bottom: 0;
+    }
+    padding: {
+      top: 26px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 120px;
+      height: 7px;
+      background-color: #f48c06;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.is-style-plain {
+    cite {
+      margin: {
+        top: 0;
+      }
+      padding: {
+        top: 0;
+      }
+      &:before {
+        content: unset;
+      }
+    }
+  }
+
+}

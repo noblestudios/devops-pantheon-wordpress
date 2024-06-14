@@ -1,0 +1,76 @@
+// Default colors
+$color-body: #202945;
+$color-hl-primary: #222222;
+$color-hl-secondary: #3170b7;
+$color-interactive: #f15a5d;
+$color-interactive-copy: #FFFFFF;
+$color-interactive-hover: #222222;
+$color-interactive-sec: #6abf4b;
+$color-interactive-sec-hover: #222222;
+
+$color-cta-primary-background: #f15a5d;
+$color-cta-primary-background-hover: #222222;
+$color-cta-primary-text: #FFFFFF;
+$color-cta-primary-text-hover: #FFFFFF;
+
+$color-cta-secondary: #6abf4b;
+$color-cta-secondary-hover: #222222;
+
+$color-cta-tertiary: #6abf4b;
+$color-cta-tertiary-hover: #222222;
+
+
+$color-supp-1: #f88d2b;
+$color-supp-2: #00adbb;
+$color-supp-3: #9a4856;
+
+// Color theme 2
+$color-body-2: #ffffff;
+$color-hl-primary-2: #e6e7e8;
+$color-hl-secondary-2: #f6e948;
+
+$color-interactive-2: #f15a5d;
+$color-interactive-copy-2: #FFFFFF;
+$color-interactive-hover-2: #e6e7e8;
+$color-interactive-sec-2: #90d5ac;
+$color-interactive-sec-hover-2: #e6e7e8;
+
+$color-cta-primary-background-2: #f15a5d;
+$color-cta-primary-background-hover-2: #E6E7E8;
+$color-cta-primary-text-2: #FFFFFF;
+$color-cta-primary-text-hover-2: #f15a5d;
+
+$color-cta-secondary-2: #90d5ac;
+$color-cta-secondary-hover-2: #e6e7e8;
+
+$color-cta-tertiary-2: #90d5ac;
+$color-cta-tertiary-hover-2: #e6e7e8;
+
+$color-dark-background: #222222;
+
+// color filters
+$filter__color-body-dark: invert(100%) sepia(0%) saturate(7500%) hue-rotate(194deg) brightness(103%) contrast(101%);
+$filter__color-hl-secondary: invert(34%) sepia(65%) saturate(706%) hue-rotate(174deg) brightness(99%) contrast(85%);
+$filter__color-interactive: invert(64%) sepia(65%) saturate(7116%) hue-rotate(329deg) brightness(103%) contrast(88%);
+$filter__color-interactive-hover: invert(10%) sepia(1%) saturate(381%) hue-rotate(331deg) brightness(105%) contrast(94%);
+$filter__color-interactive-sec: invert(62%) sepia(33%) saturate(743%) hue-rotate(59deg) brightness(99%) contrast(91%);
+$filter__color-interactive-sec-hover: invert(0%) sepia(7%) saturate(726%) hue-rotate(317deg) brightness(99%) contrast(73%);
+
+
+$filter__color-interactive-dark: invert(46%) sepia(75%) saturate(2108%) hue-rotate(325deg) brightness(98%) contrast(92%);
+$filter__color-interactive-dark-hover: invert(95%) sepia(4%) saturate(51%) hue-rotate(169deg) brightness(100%) contrast(89%);
+
+$filter__color-interactive-sec-dark: invert(89%) sepia(6%) saturate(1829%) hue-rotate(88deg) brightness(90%) contrast(87%);
+$filter__color-interactive-sec-dark-hover: invert(95%) sepia(2%) saturate(103%) hue-rotate(168deg) brightness(99%) contrast(92%);
+
+$filter__color-body-dark: invert(100%) sepia(100%) saturate(2%) hue-rotate(323deg) brightness(145%) contrast(101%);
+$filter__color-dark-background: invert(14%) sepia(0%) saturate(23%) hue-rotate(135deg) brightness(22%) contrast(101%);
+$filter__color-white: invert(100%) sepia(0%) saturate(7483%) hue-rotate(84deg) brightness(103%) contrast(103%);
+
+// form errors
+$color_error: #f32735;
+
+/// below are deprecated color variables
+$color-white: #ffffff;
+
+$opacity-layer: #00000080;

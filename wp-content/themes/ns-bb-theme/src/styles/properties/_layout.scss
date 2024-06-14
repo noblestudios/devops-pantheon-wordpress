@@ -1,0 +1,61 @@
+@use '../abstracts' as *;
+
+:root,
+.editor-styles-wrapper {
+  --ns-contentSize: #{$contentSize};
+  --ns-wideSize: #{$wideSize};
+  --ns-navSize: #{$navSize};
+
+  --ns-gutter: #{$gutter-mobile};
+  --ns-nav-gutter: #{$nav-gutter-mobile};
+
+  @include desktop {
+    --ns-gutter: #{$gutter-desktop};
+    --ns-nav-gutter: #{$nav-gutter-desktop};
+  }
+
+  // --ns-wideSize: #{$wideSize};
+
+  --ns-contentSize-padded: min(var(--ns-contentSize), calc(100% - (var(--ns-gutter) * 2)));
+  --ns-wideSize-padded: min(var(--ns-wideSize), calc(100% - (var(--ns-gutter) * 2)));
+
+  --ns-navSize-padded: min(var(--ns-navSize), calc(100% - (var(--ns-nav-gutter) * 2)));
+
+  // // creates padding for one size of a block when the other side is flush with browser edge
+  --ns-wideSize-padding: max(var(--ns-gutter), calc((100% - var(--ns-wideSize)) / 2));
+
+  --ns-radius-Small: 10px;
+  --ns-radius-Large: 18px;
+}
+
+//admin bar spacings
+:root,
+.editor-styles-wrapper {
+  --ns-admin-bar-height: 0px;
+}
+
+.admin-bar {
+  --ns-admin-bar-height: 46px;
+
+  @media only screen and (min-width: 783px) {
+    --ns-admin-bar-height: 32px;
+  }
+}
+
+body {
+  &.--nav-open {
+    overflow: hidden;
+    @include tablet {
+      overflow: unset;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #00000080;
+    }
+  }
+}

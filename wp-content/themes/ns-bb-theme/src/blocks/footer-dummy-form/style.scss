@@ -1,0 +1,41 @@
+@use '../../styles/abstracts' as *;
+
+.wp-block-ns-footer-dummy-form {
+  display: flex;
+  justify-content: center;
+
+  @include tablet {
+    justify-content: flex-start;
+  }
+
+  &__input {
+    @include field-label;
+    margin: 0;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid var(--ns-color-hl-primary);
+    outline: none;
+    font-family: $default_font_family;
+    font-weight: 400;
+    color: $color-body;
+    flex-basis: 100%;
+
+    &:focus,
+    &:active {
+      border: 1px solid #2f79c4;
+    }
+
+    @include desktop {}
+  }
+
+  &__submit {
+    @include primary-button;
+    font-family: $default_font_family;
+    border: none;
+    cursor: pointer;
+
+    margin: {
+      left: -5px;
+    }
+  }
+}

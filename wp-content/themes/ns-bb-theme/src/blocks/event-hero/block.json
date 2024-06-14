@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/event-hero",
+  "title": "Event Hero",
+  "description": "Displays event title and info",
+  "category": "hero-blocks",
+  "icon": "",
+  "keywords": [],
+  "styles": [],
+  "supports": {
+    "multiple": false,
+    "anchor": false,
+    "align": false
+  },
+  "attributes": {
+    "showImage": {
+      "type": "boolean",
+      "default": true
+    },
+    "headlineTag": {
+      "type": "string",
+      "default": "h1"
+    }
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "style": "ns-eventHero",
+  "editorScript": "file:./index.js",
+  "render": "file:./template-event-hero.php"
+}

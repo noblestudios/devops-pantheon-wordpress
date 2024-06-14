@@ -1,0 +1,24 @@
+@use 'abstracts' as *;
+@use '../editor-controls';
+
+// sets border-box to blocks in the page editor
+.is-root-container.block-editor-block-list__layout {
+  &>* {
+    box-sizing: border-box;
+  }
+}
+
+// styles links in paragraph and list blocks. Wordpress inserts the wp-block-paragraph and wp-block-list class in the editor, but not the front end. One day, hopefully, they will add it to the front-end
+
+.wp-block-paragraph,
+.wp-block-list {
+  a {
+    @include default-link;
+  }
+}
+
+.block-editor-block-list__block {
+  & * {
+    box-sizing: border-box;
+  }
+}

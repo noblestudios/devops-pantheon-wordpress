@@ -1,0 +1,139 @@
+@use '../../styles/abstracts' as *;
+
+.wp-block-ns-breadcrumbs {
+  &__wrapper {
+    @include wideSize;
+  }
+
+  &__items {
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    gap: 8px;
+
+    padding: {
+      top: var(--ns-spacingMinor1);
+      bottom: var(--ns-spacingMinor1);
+      left: 0;
+      right: 0;
+    }
+
+    ;
+    margin: 0;
+    list-style: none;
+
+    @include desktop {
+      overflow: unset;
+      gap: 8px;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    margin: 0;
+    position: relative;
+
+    &:has(a:hover) {
+      .wp-block-ns-breadcrumbs__children-wrap {
+        grid-template-rows: 1fr;
+      }
+    }
+  }
+
+  &__item-arrow {
+    display: inline-block;
+    position: relative;
+    width: 8px;
+    height: 8px;
+
+    margin: {
+      left: 8px;
+    }
+
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 4px);
+      right: 0;
+      height: 8px;
+      width: 8px;
+      background-color: $color-body;
+      mask-image: url('~/assets/svgs/arrows/caret-down.svg');
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+      transform: rotateZ(0deg);
+    }
+
+    &.--has-children {
+      height: 12px;
+      width: 12px;
+      &:after {
+        transform: rotate(90deg);
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    &.--back {
+      width: 16px;
+      height: 16px;
+      margin: {
+        left: 0;
+        right: 8px;
+      }
+
+      &:after {
+        background-color: var(--ns-color-interactive);
+        transform: rotate(180deg);
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  &__item-link {
+    @include text-micro;
+    display: inline-block;
+  }
+
+  &__children-wrap {
+    position: absolute;
+    width: 280px;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .3s;
+    background-color: var(--background);
+  }
+
+  &__children {
+    overflow: hidden;
+    padding: {
+      top: 0;
+      bottom: 0;
+      left: 24px;
+      right: 24px;
+    }
+    list-style: none;
+
+    li {
+      &:first-child {
+        margin: {
+          top: 40px;
+        }
+      }
+
+      &:last-child {
+        margin: {
+          bottom: 40px;
+        }
+      }
+    }
+
+    a {
+      color: var(--ns-color-hl-secondary);
+    }
+  }
+
+}

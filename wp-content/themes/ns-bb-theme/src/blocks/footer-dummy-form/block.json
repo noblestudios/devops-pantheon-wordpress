@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/footer-dummy-form",
+  "title": "Dummy Form for Footers",
+  "description": "Used only for Footer QA, do not use for production",
+  "category": "nav-blocks",
+  "icon": "",
+  "keywords": [
+    "form",
+    "footer"
+  ],
+  "parent": [
+    "ns/footer-1",
+    "ns/footer-2",
+    "ns/footer-3",
+    "ns/footer-4",
+    "ns/footer-5",
+    "ns/footer-6",
+    "ns/footer-7",
+    "ns/footer-8"
+  ],
+  "styles": [],
+  "supports": {
+    "multiple": true,
+    "anchor": false,
+    "align": []
+  },
+  "example": {
+    "viewportWidth": 600
+  },
+  "style": "file:./style-index.css",
+  "render": "file:./template-footer-dummy-form.php",
+  "editorScript": "file:./index.js"
+}

@@ -1,0 +1,581 @@
+@use '../../styles/abstracts' as *;
+@use '../../styles/modules/forms';
+
+$styleguide-primary-color: #0e301d;
+$styleguide-secondary-color: #FF4A1C;
+
+$sg-section-padding: 32px;
+$sg-section-padding-mobile: 8px;
+
+@mixin sg-primary-heading {
+  font-family: sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: .25rem;
+  text-transform: uppercase;
+}
+
+@mixin sg-secondary-heading {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: .25rem;
+  text-transform: uppercase;
+}
+
+@mixin sg-tertiary-heading {
+  font-family: sans-serif;
+  font-size: .8rem;
+  font-weight: bold;
+  letter-spacing: 0rem;
+  text-transform: uppercase;
+}
+
+.wp-block-ns-globals {
+  &__container {
+    position: relative;
+    background-color: #f5f5f5 !important;
+    padding-bottom: 8px;
+
+    .page-template-qc-blocks & {
+      background-color: unset;
+    }
+  }
+
+  &__theme {
+    position: relative;
+
+    padding: {
+      left: 16px;
+      right: 16px;
+    }
+
+    margin: {
+      bottom: 80px;
+    }
+
+    z-index: 100;
+
+
+
+    &.--theme-3 {
+      .wp-block-ns-globals__layout {
+        background-image: url(~/assets/images/any.jpg);
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #000;
+          opacity: .5;
+        }
+      }
+    }
+  }
+
+  &__theme-heading {
+    @include sg-primary-heading();
+    color: $color-interactive;
+    text-align: center;
+
+    padding: {
+      top: 64px;
+      bottom: 64px;
+    }
+  }
+
+  &__theme-container {
+    padding: {
+      left: 0;
+      right: 0;
+    }
+
+    z-index: 100;
+
+    @include desktop {
+      padding: {
+        left: 16px;
+        right: 16px;
+      }
+    }
+  }
+
+  &__section-heading {
+    @include sg-secondary-heading();
+    z-index: 1;
+
+    margin: {
+      bottom: 24px;
+    }
+
+    @include desktop {
+      flex-basis: 100%;
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+
+    .\--theme-1 & {
+      color: $color-dark-background;
+    }
+
+    .\--theme-2 &,
+    .\--theme-3 & {
+      color: #E6E7E8;
+    }
+  }
+
+  &__section-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-radius: 24px;
+    background-color: var(--background);
+
+    margin: {
+      bottom: 40px;
+    }
+
+    padding: {
+      top: 16px;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+    }
+
+    @include desktop {
+      padding: {
+        top: $sg-section-padding;
+        bottom: $sg-section-padding;
+        left: $sg-section-padding;
+        right: $sg-section-padding;
+      }
+    }
+
+    &.\--theme-3 {
+      background-color: unset;
+      background-image: url(~/assets/images/bear.jpg);
+      background-position: center;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: .5;
+        border-radius: 24px;
+      }
+    }
+
+    &.\--typography {
+      column-gap: 24px;
+    }
+  }
+
+  &__colors {
+    display: flex;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    gap: 16px;
+    z-index: 1;
+  }
+
+  &__color-swatch-wrapper {
+    flex-basis: calc(50% - 16px);
+    max-width: 50%;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+
+    @include desktop {
+      flex-basis: calc(20% - 14px);
+      max-width: 20%;
+      flex-grow: 0;
+    }
+  }
+
+  &__color-swatch {
+    aspect-ratio: 1/.75;
+    position: relative;
+
+    margin: {
+      top: 4px;
+    }
+
+    &.--background {
+      background-color: var(--background);
+    }
+
+    &.--heading-primary {
+      background-color: var(--ns-color-hl-primary);
+    }
+
+    &.--heading-secondary {
+      background-color: var(--ns-color-hl-secondary);
+    }
+
+    &.--body {
+      background-color: var(--ns-color-body);
+    }
+
+    &.--interactive-primary {
+      background-color: var(--ns-color-interactive);
+    }
+
+    &.--interactive-primary-copy {
+      background-color: var(--ns-color-interactive-copy);
+    }
+
+    &.--hover-primary {
+      background-color: var(--ns-color-interactive-hover);
+    }
+
+    &.--hover-primary-copy {
+      background-color: var(--ns-color-interactive-copy-hover);
+    }
+
+    &.--interactive-secondary {
+      background-color: var(--ns-color-interactive-secondary);
+    }
+
+    &.--interactive-secondary-copy {
+      background-color: var(--ns-color-interactive-secondary);
+    }
+
+    &.--hover-secondary {
+      background-color: var(--ns-color-interactive-secondary-hover);
+    }
+
+    &.--hover-secondary-copy {
+      background-color: var(--ns-color-interactive-secondary-hover);
+    }
+
+    &.--supplementary-one {
+      background-color: $color-supp-1;
+    }
+
+    &.--supplementary-two {
+      background-color: $color-supp-2;
+    }
+
+    &.--supplementary-three {
+      background-color: $color-supp-3;
+    }
+  }
+
+  &__color-swatch-copy {
+    @include text-micro;
+    font-size: 0.875rem;
+    line-height: 1.428;
+    text-align: center;
+    position: absolute;
+    background: #ffffff;
+    color: $color-dark-background;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+
+    &.\--transparent {
+      background: transparent;
+    }
+
+    &.\--light-text {
+      color: #E6E7E8;
+    }
+
+    .\--theme-2 .\--hover-primary & {
+      background: $color-interactive-2;
+    }
+
+    .\--theme-3 .\--interactive-primary & {
+      background: $color-interactive-2;
+    }
+  }
+
+  &__color-swatch-label {
+    @include sg-tertiary-heading();
+
+    margin: {
+      top: 8px;
+      bottom: auto;
+    }
+
+    .\--theme-1 & {
+      color: $color-dark-background;
+    }
+
+    .\--theme-2 &,
+    .\--theme-3 & {
+      color: #E6E7E8;
+    }
+  }
+
+  &__typography-wrapper {
+    flex-basis: 100%;
+
+    @include desktop {
+      flex-basis: 30%;
+      flex-grow: 1;
+    }
+  }
+
+  &__typography-container {
+    background-color: var(--background);
+    width: 100%;
+
+    padding: {
+      top: $sg-section-padding-mobile;
+      bottom: $sg-section-padding-mobile;
+      left: 16px;
+      right: 16px;
+    }
+
+    @include desktop {
+      padding: {
+        top: $sg-section-padding;
+        bottom: $sg-section-padding;
+      }
+    }
+
+    &>* {
+      margin: {
+        bottom: 24px;
+      }
+    }
+  }
+
+  &__typography {
+
+    &.--label {
+      @include label;
+    }
+
+    &.--paragraph {
+      @include paragraph;
+    }
+
+    &.--address {
+      @include address;
+    }
+
+    &.--microcopy {
+      @include text-micro;
+    }
+
+    &.--hyperlink {
+      @include hyperlink;
+      cursor: pointer;
+    }
+
+    &.--microlink {
+      @include microlink;
+      cursor: pointer;
+    }
+
+    &.--button-text {
+      @include button-text;
+    }
+
+    &.--micro-button-text {
+      @include micro-button-text;
+    }
+
+    &.--input {
+      @include forms.textInput;
+    }
+  }
+
+  &__interactive-container {
+    display: flex;
+    gap: 32px;
+    background-color: var(--background);
+    width: 100%;
+
+    padding: {
+      top: $sg-section-padding-mobile;
+      bottom: $sg-section-padding-mobile;
+      left: $sg-section-padding-mobile;
+      right: $sg-section-padding-mobile;
+    }
+
+    @include desktop {
+      padding: {
+        top: $sg-section-padding;
+        bottom: $sg-section-padding;
+        left: $sg-section-padding;
+        right: $sg-section-padding;
+      }
+    }
+  }
+
+  &__interactive-columns {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    &>* {
+
+      margin: {
+        bottom: 24px;
+        right: auto;
+      }
+    }
+
+    .--label {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__buttons-heading {
+    @include sg-tertiary-heading();
+
+    margin: {
+      bottom: 36px;
+    }
+  }
+
+  .button-1 {
+    @include primary-button;
+  }
+
+  .button-2 {
+    @include secondary-button;
+  }
+
+  .button-3 {
+    @include tertiary-button;
+  }
+
+  .button-4 {
+    @include micro-button;
+  }
+
+  .pagination {
+    @include pagination-number;
+  }
+
+  .\--theme-3 {
+    .pagination {
+      color: $color-dark-background;
+
+      &:hover {
+        color: var(--ns-color-interactive);
+      }
+
+      &.--active {
+        color: var(--ns-color-interactive);
+      }
+    }
+  }
+
+  .dots {
+    @include meatball;
+  }
+
+  .close {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    @include micro-button-text;
+    text-decoration: none;
+
+    &::after {
+      background-image: url(~/assets/svgs/icons/close.svg);
+      background-position: 50%;
+      background-repeat: no-repeat;
+      content: "";
+      filter: $filter__color-interactive;
+      height: 12px;
+      width: 12px;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: var(--ns-color-interactive);
+    }
+  }
+
+  &__interactive-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    &>* {
+
+      margin: {
+        bottom: 16px;
+        right: auto;
+      }
+    }
+  }
+
+  .\--less-space {
+    margin-bottom: 0;
+  }
+
+  &__form-elements {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    input {
+      @include styled-checkbox;
+      align-self: center;
+
+      .\--theme-2 &,
+      .\--theme-3 & {
+        border: 2px solid var(--ns-color-hl-primary);
+
+        &::before {
+          background-color: var(--ns-color-hl-primary);
+        }
+      }
+    }
+
+    label {
+      cursor: pointer;
+    }
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin-left: 0;
+  }
+
+  .radio-block {
+    @include forms.radioBlock;
+  }
+
+  &__select-wrapper {
+    @include forms.selectWrapper;
+
+    @include desktop {
+      margin-bottom: 24px;
+    }
+
+    select {
+      @include forms.textInput;
+      cursor: pointer;
+      color: $color-body;
+      width: 242px;
+      height: 54px;
+      appearance: none;
+    }
+  }
+}

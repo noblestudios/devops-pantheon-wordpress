@@ -1,0 +1,148 @@
+@use 'abstracts' as *;
+@use 'modules/forms';
+
+.gform_wrapper {
+  form {
+    input[type='text'] {
+      @include forms.textInput;
+    }
+    input[type='email'] {
+      @include forms.textInput;
+    }
+    input[type='submit'] {
+      @include cta;
+    }
+  }
+
+  label {
+    @include forms.label;
+  }
+
+  legend {
+    @include forms.label;
+  }
+
+  fieldset {
+    @include forms.fieldset;
+  }
+
+  select {
+    @include forms.basicSelect;
+  }
+
+  .gfield {
+    margin: {
+      bottom: 24px;
+    }
+    @include desktop {
+      margin: {
+        bottom: 40px;
+      }
+    }
+  }
+  .ginput_full,
+  .ginput_left,
+  .ginput_right {
+    margin: {
+      bottom: 24px;
+    }
+    @include desktop {
+      margin: {
+        bottom: 40px;
+      }
+    }
+  }
+
+  .ginput_full {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    & > input,
+    & > select {
+      flex-basis: 100%;
+    }
+
+    & > label {
+      flex-shrink: 0;
+    }
+  }
+
+  .ginput_container_select {
+    @include forms.selectWrapper;
+  }
+
+  .field_sublabel_below {
+    label {
+      order: 2;
+    }
+  }
+
+  .field_sublabel_above {
+    label {
+      order: 1;
+    }
+  }
+
+  .gfield {
+    .field_sublabel_below {
+      label {
+        order: 2;
+      }
+      input {
+        order: 1;
+      }
+    }
+
+    .field_sublabel_above {
+      label {
+        order: 1;
+      }
+      input {
+        order: 2;
+      }
+    }
+  }
+
+  .ginput_complex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    span {
+      flex-basis: 50%;
+      max-width: calc(50% - 8px);
+      display: inline-flex;
+      flex-wrap: wrap;
+
+      input {
+        flex-basis: 100%;
+        margin: {
+          bottom: 8px;
+        }
+      }
+    }
+  }
+
+  .validation_message {
+    @include text-micro;
+    color: #fff;
+    background-color: $color-error;
+    padding: {
+      top: 8px;
+      bottom: 8px;
+      left: 8px;
+      right: 8px;
+    }
+  }
+
+  .gfield-choice-input {
+    & + label {
+      @include paragraph;
+    }
+  }
+
+  .gchoice {
+    @include forms.radioBlock;
+    @include forms.checkboxBlock;
+  }
+}

@@ -1,0 +1,35 @@
+@use '../abstracts' as *;
+
+.grid {
+  background-color: aquamarine;
+  @include ns-grid();
+
+  &__wrapper {
+    margin: {
+      top: 30vh;
+    }
+  }
+
+  &__item {
+    background-color: indianred;
+    height: 20vh;
+  }
+
+  .block-1 {
+    @include ns-grid-item(3, 300px, 400px);
+  }
+  .block-2 {
+    @include ns-grid-item(3);
+  }
+  .block-3 {
+    @include ns-grid-item(3);
+  }
+  .block-4 {
+    @include ns-grid-item(0);
+    display: none;
+  }
+  .block-5 {
+    @include ns-grid-item(0);
+    display: none;
+  }
+}

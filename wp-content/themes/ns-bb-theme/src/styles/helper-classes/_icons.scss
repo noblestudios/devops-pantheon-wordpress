@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+
+@keyframes spinner-rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.\--spinner {
+  height: 60px;
+  width: 60px;
+  position: relative;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  background-color: #000000;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-image: url(~/assets/svgs/utility/fa-spinner.svg);
+  -webkit-mask-image: url(~/assets/svgs/utility/fa-spinner.svg);
+  animation: spinner-rotation 2s infinite linear;
+}

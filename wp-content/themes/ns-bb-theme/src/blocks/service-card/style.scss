@@ -1,0 +1,51 @@
+@use '../../styles/abstracts' as *;
+
+.wp-block-ns-service-card {
+  &__wrapper {}
+
+  &__image {
+    position: relative;
+    aspect-ratio: 384/154;
+
+    margin: {
+      bottom: 16px;
+    }
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__title-wrapper {}
+
+  &__title {
+    margin: {
+      bottom: 16px;
+    }
+  }
+
+  &__content {
+    margin: {
+      bottom: 16px;
+    }
+
+    &>* {
+      margin: {
+        top: 0;
+      }
+    }
+  }
+
+  &__item-link {
+    @include default-link;
+    display: block;
+
+    margin: {
+      bottom: 16px;
+    }
+  }
+}

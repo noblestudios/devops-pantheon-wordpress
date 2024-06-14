@@ -1,0 +1,21 @@
+{
+    "extends": [
+        "plugin:@wordpress/eslint-plugin/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "ignorePatterns": ["webpack.config.js", "**/vendor/*.js"],
+    "rules": {
+        "indent": "off",
+        "react-hooks/rules-of-hooks": "off",
+        "no-shadow": "off"
+    },
+    "env": {
+        "jest": true,
+        "browser": true
+    },
+    "globals": {
+        "lodash": true,
+        "listingArgs": true,
+        "wpApiSettings": true
+    }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/site-map",
+  "title": "Site Map",
+  "category": "widgets",
+  "description": "Simple site map",
+  "keywords": [
+    "site map"
+  ],
+  "textdomain": "default",
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "eyebrow"
+    },
+    "headline": {
+      "type": "string",
+      "default": "Headline"
+    },
+    "headerContent": {
+      "type": "string",
+      "default": ""
+    },
+    "parentLinks": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": [
+      "wide"
+    ]
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "editorScript": "file:./index.js",
+  "style": "ns-site-map",
+  "viewScript": "file:./view.js",
+  "render": "file:./template-site-map.php"
+}

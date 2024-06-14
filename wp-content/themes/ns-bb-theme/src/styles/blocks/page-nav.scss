@@ -1,0 +1,59 @@
+@use '../abstracts' as *;
+
+.page-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin: {
+    top: 48px;
+  }
+
+  @include desktop {
+    margin: {
+      top: 24px;
+    }
+  }
+
+  &.\--hide {
+    display: none;
+  }
+
+  &__prev,
+  &__next {
+    @include text-micro;
+    @include default-link;
+    border: none;
+    background: none;
+  }
+
+  &__nav-pages {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__page-num {
+    display: block;
+    font-size: var(--ns-p-normal-fontSize);
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--ns-color-interactive);
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--ns-color-interactive);
+    color: var(--ns-color-body);
+    font-weight: 900;
+
+    @include desktop {
+      width: 32px;
+      height: 32px;
+    }
+
+    &.\--current {
+      background: none;
+    }
+  }
+
+
+
+}

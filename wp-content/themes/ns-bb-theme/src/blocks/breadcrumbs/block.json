@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/breadcrumbs",
+  "title": "Breadcrumbs",
+  "category": "widgets",
+  "description": "",
+  "keywords": [
+    "breadcrumbs"
+  ],
+  "textdomain": "default",
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "manualSelection": {
+      "type": "boolean",
+      "default": false
+    },
+    "selectedPage": {
+      "type": "integer",
+      "default": 0
+    },
+    "dropDownChildren": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": false
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "editorScript": "file:./index.js",
+  "style": "ns-breadcrumbs",
+  "render": "file:./template-breadcrumbs.php"
+}

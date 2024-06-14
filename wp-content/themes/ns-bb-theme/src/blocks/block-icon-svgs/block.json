@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/block-icon-svgs",
+  "title": "Block Icon SVG Library",
+  "description": "Just for design needs, lists available SVGs for use as block icons",
+  "category": "widgets",
+  "keywords": [],
+  "supports": {
+    "multiple": true,
+    "anchor": true,
+    "align": false
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "editorScript": "file:./index.js"
+}

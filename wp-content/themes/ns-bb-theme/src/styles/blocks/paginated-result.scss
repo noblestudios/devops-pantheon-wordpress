@@ -1,0 +1,113 @@
+@use '../abstracts' as *;
+
+.paginated-result {
+
+  @include unstyled-link;
+
+  @include tablet {
+
+    &.--full-width {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      gap: var(--ns-spacingMini1);
+
+      .paginated-result__image {
+        flex-basis: 280px;
+        flex-shrink: 0;
+      }
+    }
+
+    &:nth-child(even) {
+      //transform: translateY(40px);
+    }
+  }
+
+  &__image {
+    aspect-ratio: 2.5;
+    overflow: hidden;
+    position: relative;
+    margin: {
+      bottom: 16px;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__body {
+    margin: {
+      top: 16px;
+    }
+
+    &-type {
+      @include text-micro;
+      line-height: 1;
+      margin: {
+        bottom: 8px;
+      }
+
+      @include desktop {
+        margin: {
+          bottom: 16px;
+        }
+      }
+    }
+
+    &-title {
+      @include headline-xs;
+      line-height: 1;
+      margin: {
+        bottom: 8px;
+      }
+
+      @include desktop {
+        margin: {
+          bottom: 16px;
+        }
+      }
+    }
+
+    &-event-date {
+      @include text-micro;
+    }
+
+    &-excerpt {
+      margin: {
+        bottom: 8px;
+      }
+
+      @include desktop {
+        margin: {
+          bottom: 16px;
+        }
+      }
+    }
+
+
+
+    &-cta {
+      @include default-link;
+      line-height: 1;
+    }
+  }
+
+  &:hover {
+    .\--cta {
+
+      &::after {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  &:active {
+    .\--cta {
+
+    }
+  }
+}

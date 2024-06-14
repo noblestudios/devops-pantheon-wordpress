@@ -1,0 +1,134 @@
+@use '../../styles/abstracts' as *;
+
+.wp-block-ns-side-nav {
+  &__wrapper {
+    @include wideSize;
+
+    padding: {
+      top: 68px;
+      bottom: 42px;
+    }
+
+    @include desktop {
+      @include ns-grid;
+    }
+  }
+
+  &__content {
+    margin: {
+      bottom: 32px;
+    }
+
+    @include desktop {
+      @include ns-grid-item(8);
+
+      margin: {
+        bottom: 0;
+      }
+    }
+  }
+
+  &__sidebar {
+    @include desktop {
+      @include ns-grid-item(3);
+    }
+  }
+
+  &__sidebar-title {
+    @include headline-l;
+
+    margin: {
+      bottom: 24px;
+    }
+  }
+
+  &__items {
+    padding: {
+      left: 0;
+    }
+  }
+
+  &__item {
+    list-style: none;
+
+    padding: {
+      left: 0;
+      bottom: 16px;
+    }
+
+    border-bottom: 1px solid $color-hl-secondary;
+
+    margin: {
+      bottom: 16px;
+    }
+
+    &.--open {
+      .wp-block-ns-side-nav__item-children-wrapper {
+        grid-template-rows: 1fr;
+      }
+
+      .wp-block-ns-side-nav__item-toggle {
+        &::after {
+          background-image: url('~/assets/svgs/icons/Minus.svg');
+        }
+      }
+    }
+  }
+
+  &__item-top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item-link {
+    @include default-link;
+  }
+
+  &__item-toggle {
+    position: relative;
+    width: 40px;
+    height: 28px;
+    background-color: transparent;
+    border: 0;
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 7.5px);
+      right: 0;
+      width: 15px;
+      height: 15px;
+
+      background-image: url('~/assets/svgs/icons/Plus.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: $filter__color-interactive;
+    }
+  }
+
+  &__item-children-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-in-out;
+  }
+
+  &__item-children {
+    overflow: hidden;
+
+    padding: {
+      left: 16px;
+    }
+  }
+
+  &__item-child {
+    list-style: none;
+
+    margin: {
+      top: 24px;
+      bottom: 24px;
+    }
+  }
+}

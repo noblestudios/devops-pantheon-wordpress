@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/landing-nav",
+  "title": "Landing Nav",
+  "description": "",
+  "category": "nav-blocks",
+  "icon": "",
+  "keywords": [
+    "site",
+    "header",
+    "navigation",
+    "landing"
+  ],
+  "styles": [],
+  "supports": {
+    "multiple": true,
+    "anchor": false,
+    "align": false
+  },
+  "attributes": {
+    "navCTALink": {
+      "type": "object",
+      "default": false
+    },
+    "navCTALabel": {
+      "type": "string",
+      "default": ""
+    },
+    "navCTALink2": {
+      "type": "object",
+      "default": false
+    },
+    "navCTALabel2": {
+      "type": "string",
+      "default": ""
+    },
+    "logo": {
+      "type": "integer",
+      "default": 0
+    },
+    "searchHeadline": {
+      "type": "string",
+      "default": "What Are You Looking For?"
+    },
+    "searchPlaceholder": {
+      "type": "string",
+      "default": "Enter Your Search Here"
+    },
+    "recommendedHeadline": {
+      "type": "string",
+      "default": "Recommended Pages"
+    },
+    "recommendedPages": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "example": {
+    "viewportWidth": 1440
+  },
+  "render": "file:./template-landing-nav.php",
+  "editorScript": "file:./index.js",
+  "style": "ns-landing-nav"
+}

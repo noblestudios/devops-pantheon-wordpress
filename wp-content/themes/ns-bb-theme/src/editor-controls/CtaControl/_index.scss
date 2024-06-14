@@ -1,0 +1,48 @@
+@use '../../styles/abstracts' as *;
+
+.ns-cta-popover {
+
+  // fixes the width and margins in a link control when in the sidebar
+  .block-editor-link-control {
+    min-width: 100%;
+
+    &__field {
+      margin: {
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+
+    &__tools {
+      padding: {
+        left: 0;
+        right: 0;
+      }
+    }
+
+    &__search-item {
+      &.is-current {
+        padding: {
+          top: 0;
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+
+    &__search-results {
+      padding: {
+        left: 0;
+        right: 0;
+      }
+    }
+
+    &__search-item {
+      padding: {
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}

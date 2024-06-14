@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/two-column-image",
+  "title": "Two Column With Image",
+  "category": "widgets",
+  "description": "",
+  "keywords": [
+    "two-column-image"
+  ],
+  "textdomain": "default",
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "sideImage": {
+      "type": "integer",
+      "default": 0
+    },
+    "flip": {
+      "type": "boolean",
+      "default": false
+    },
+    "isExample": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "isExample": true
+    },
+    "innerBlocks": [
+      {
+        "name": "core/paragraph",
+        "attributes": {
+          "content": "Magna dolore dolore exercitation id deserunt ea ipsum commodo ullamco nisi ea Lorem et. Id duis qui incididunt nulla aliqua exercitation qui quis sit deserunt voluptate proident consequat."
+        }
+      }
+    ],
+    "viewportWidth": 1440
+  },
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": false
+  },
+  "editorScript": "file:./index.js",
+  "style": "ns-two-column-image",
+  "render": "file:./template-two-column-image.php"
+}

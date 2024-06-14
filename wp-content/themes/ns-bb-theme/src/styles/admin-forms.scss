@@ -1,0 +1,35 @@
+.image-select-field {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+
+  &__img-wrap {
+    height: 150px;
+    width: 150px;
+    position: relative;
+    display: none;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__button-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  input.image-select-field__remove {
+    display: none;
+  }
+
+  &.--has-value {
+    .image-select-field__remove,
+    .image-select-field__img-wrap {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+@use '../abstracts' as *;
+
+.--cta:not(.--secondary):not(.--tertiary) {
+  @include primary-button;
+}
+
+.--cta.--secondary {
+  @include secondary-button;
+}
+
+.--cta.--tertiary {
+  @include tertiary-button;
+}
+
+.--micro-cta {
+  @include micro-button;
+}
+
+.--wizzy {
+  @include wizzy;
+}
+
+.--hl-xxl {
+  @include headline-xxl;
+}
+
+.--hl-xl {
+  @include headline-xl;
+}
+
+.--hl-l {
+  @include headline-l;
+}
+
+.--hl-m {
+  @include headline-m;
+}
+
+.--hl-s {
+  @include headline-s;
+}
+
+.--hl-xs {
+  @include headline-xs;
+}
+
+.--eyebrow {
+  @include eyebrow;
+}
+
+.--micro-text {
+  @include text-micro;
+}
+
+.--homepage-1 {
+  font-size: 4rem;
+
+  @include desktop {
+    font-size: 6.25rem;
+  }
+}
+
+.--homepage-2 {
+  font-size: 2.5rem;
+
+  @include desktop {
+    font-size: 4rem;
+  }
+}
+
+.--homepage-eye {
+  font-size: 1rem;
+
+  @include desktop {
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+}

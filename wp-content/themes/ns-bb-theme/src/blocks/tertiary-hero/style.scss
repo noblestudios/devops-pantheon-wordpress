@@ -1,0 +1,154 @@
+@use '../../styles/abstracts' as *;
+
+.wp-block-ns-tertiary-hero {
+  &__background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 0;
+
+    @include tablet {
+      min-height: 65vh;
+    }
+
+    &.--bg-image {
+      background-color: $color-dark-background;
+
+      &::after {
+        content: '';
+        background-color: transparentize($color-dark-background, 0.25);
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+    }
+  }
+
+  &__image {
+    aspect-ratio: 1 / 1;
+    height: 500px;
+    width: auto;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__grid {
+    @include wideSize;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    padding: {
+      top: var(--ns-spacingMajor1);
+      bottom: var(--ns-spacingMajor1);
+    }
+
+    .--bg-image & {
+      //color: $color-white;
+    }
+
+    .--square-image & {
+      align-items: center;
+    }
+
+    @include desktop {
+      gap: 32px;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+
+  &__body {
+    width: 100%;
+  }
+
+  &__subtitle {
+    @include eyebrow;
+
+    margin: {
+      bottom: var(--ns-spacingMini2);
+    }
+
+    .--bg-image & {
+      //color: $color-white;
+    }
+  }
+
+  &__title {
+    margin: 0;
+
+    @include tablet {
+      margin: {
+        bottom: 16px;
+      }
+    }
+
+    &.--medium {
+      @include headline-xl;
+    }
+
+    &.--small {
+      @include headline-l;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: {
+      top: 48px;
+    }
+  }
+
+  &__link {
+    @include default-link;
+    flex-basis: 100%;
+
+    margin: {
+      bottom: 16px;
+    }
+
+    @include tablet {
+      flex-basis: 50%;
+    }
+
+    .--bg-image & {
+      &:hover {
+        //color: $color-white;
+      }
+    }
+  }
+
+  &__description {
+    max-width: 800px;
+    display: none;
+
+    @include tablet {
+      display: block;
+      color: var(--ns-color-body);
+    }
+  }
+
+  &__mobile-description {
+    margin: {
+      top: 24px;
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,795 @@
+@use 'variables' as *;
+@use 'functions' as *;
+@use 'sass:math';
+
+// These breakpoints force mobile-first development
+@mixin tablet {
+  @media (min-width: #{$medium-screen-min}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$large-screen-min}) {
+    @content;
+  }
+}
+
+@mixin svg-mask {
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+
+@mixin svg-mask-icon($color, $svg: false) {
+  position: relative;
+
+  &:before {
+    content: '';
+    background-color: $color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    transition: background-color $transition;
+    cursor: pointer;
+
+    @if $svg !=false {
+      mask-image: url($svg);
+    }
+
+    @content;
+  }
+}
+
+// this mixin matches the default Wordpress open content width. It ensures text has the same max-width, paddings, and auto margins
+@mixin contentSize {
+  width: var(--ns-contentSize-padded);
+
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+// adds same styling that Wordpress adds to blocks with the alignwide class
+@mixin wideSize {
+  width: var(--ns-wideSize-padded);
+
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin navSize {
+  width: var(--ns-navSize-padded);
+
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin cta {
+  @include tertiary-button();
+}
+
+@mixin headline-xxl {
+  font-family: var(--ns-hl-xxl-fontFamily);
+  font-size: var(--ns-hl-xxl-fontSize);
+  line-height: var(--ns-hl-xxl-lineHeight);
+  font-weight: var(--ns-hl-xxl-fontWeight);
+  color: var(--ns-color-hl-primary);
+}
+
+@mixin headline-xl {
+  font-family: var(--ns-hl-xl-fontFamily);
+  font-size: var(--ns-hl-xl-fontSize);
+  line-height: var(--ns-hl-xl-lineHeight);
+  font-weight: var(--ns-hl-xl-fontWeight);
+  color: var(--ns-color-hl-secondary);
+}
+
+@mixin headline-l {
+  font-family: var(--ns-hl-l-fontFamily);
+  font-size: var(--ns-hl-l-fontSize);
+  line-height: var(--ns-hl-l-lineHeight);
+  font-weight: var(--ns-hl-l-fontWeight);
+  color: var(--ns-color-hl-primary);
+}
+
+@mixin headline-m {
+  font-family: var(--ns-hl-m-fontFamily);
+  font-size: var(--ns-hl-m-fontSize);
+  line-height: var(--ns-hl-m-lineHeight);
+  font-weight: var(--ns-hl-m-fontWeight);
+  color: var(--ns-color-hl-secondary);
+}
+
+@mixin headline-s {
+  font-family: var(--ns-hl-s-fontFamily);
+  font-size: var(--ns-hl-s-fontSize);
+  line-height: var(--ns-hl-s-lineHeight);
+  font-weight: var(--ns-hl-s-fontWeight);
+  color: var(--ns-color-hl-primary);
+}
+
+@mixin headline-xs {
+  font-family: var(--ns-hl-xs-fontFamily);
+  font-size: var(--ns-hl-xs-fontSize);
+  line-height: var(--ns-hl-xs-lineHeight);
+  font-weight: var(--ns-hl-xs-fontWeight);
+  color: var(--ns-color-hl-secondary);
+}
+
+@mixin text-normal {
+  font-size: var(--ns-p-normal-fontSize);
+  line-height: var(--ns-p-normal-lineHeight);
+  font-weight: var(--ns-p-micro-fontWeight);
+  color: var(--ns-color-body);
+}
+
+@mixin paragraph {
+  @include text-normal();
+}
+
+@mixin text-micro {
+  font-size: var(--ns-p-micro-fontSize);
+  line-height: var(--ns-p-micro-lineHeight);
+  font-weight: var(--ns-p-micro-fontWeight);
+}
+
+@mixin micro-button-text {
+  font-family: $default_font_family;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+@mixin button-text {
+  @include unstyled-link();
+  font-family: $default_font_family;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: capitalize;
+
+  @include desktop {
+    font-size: 1.25rem;
+  }
+}
+
+@mixin eyebrow {
+  font-family: $eyebrow-fontFamily;
+  font-size: var(--ns-eyebrow-fontSize);
+  line-height: $eyebrow-lineHeight;
+  font-weight: $eyebrow-fontWeight;
+  letter-spacing: $eyebrow-letterSpacing;
+  text-transform: uppercase;
+  color: var(--ns-color-hl-primary);
+}
+
+@mixin field-label {
+  font-family: $label-fontFamily;
+  font-size: var(--ns-label-fontSize);
+  line-height: $label-lineHeight;
+  font-weight: $label-fontWeight;
+  letter-spacing: $label-letterSpacing;
+  color: var(--ns-color-hl-primary);
+}
+
+@mixin label {
+  @include field-label();
+}
+
+@mixin address {
+  font-size: var(--ns-p-normal-fontSize);
+  line-height: 1;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+@mixin nav-link {
+  text-decoration: none;
+  font-size: var(--ns-nav-fontSize);
+  font-family: $nav-fontFamily;
+  color: $nav-color;
+  line-height: $nav-lineHeight;
+  font-weight: $nav-fontWeight;
+  letter-spacing: $nav-letterSpacing;
+}
+
+@mixin primary-nav {
+  @include nav-link();
+}
+
+@mixin nav-secondary-link {
+  text-decoration: none;
+  font-size: var(--ns-nav-secondary-fontSize);
+  font-family: $nav-secondary-fontFamily;
+  color: var(--ns-color-hl-secondary);
+  line-height: $nav-secondary-lineHeight;
+  font-weight: $nav-secondary-fontWeight;
+  letter-spacing: $nav-secondary-letterSpacing;
+}
+
+@mixin secondary-nav {
+  @include nav-secondary-link();
+}
+
+@mixin default-link {
+  cursor: pointer;
+  text-decoration: underline;
+  transition: 0.2s;
+  color: var(--ns-color-interactive);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--ns-color-interactive-hover);
+  }
+}
+
+@mixin unstyled-link {
+  transition: unset;
+  color: unset;
+  text-decoration: none;
+
+  &:hover {
+    color: unset;
+  }
+}
+
+// margins to be revisited after WP 6.2 release
+@mixin wizzy {
+  h1 {
+    @include headline-xxl;
+  }
+
+  h2 {
+    @include headline-xl;
+  }
+
+  h3 {
+    @include headline-l;
+  }
+
+  h4 {
+    @include headline-m;
+  }
+
+  h5 {
+    @include headline-s;
+  }
+
+  h6 {
+    @include headline-xs;
+  }
+
+  ul {
+    margin: {
+      left: 16px;
+    }
+
+    padding: 0;
+
+    li {
+      margin: {
+        right: 0;
+        left: 0;
+      }
+    }
+  }
+
+  p,
+  ul,
+  ol,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  figure,
+  .mceTemp {
+    margin: {
+      top: var(--ns-marginTop);
+      bottom: var(--ns-marginBottom);
+    }
+  }
+
+  p+figure,
+  p+.mceTemp,
+  h1+p,
+  h1+ul,
+  h1+ol,
+  h1+figure,
+  h2+p,
+  h2+ul,
+  h2+ol,
+  h2+figure,
+  h3+p,
+  h3+ul,
+  h3+ol,
+  h3+figure,
+  h4+p,
+  h4+ul,
+  h4+ol,
+  h4+figure,
+  h5+p,
+  h5+ul,
+  h5+ol,
+  h5+figure,
+  h6+p,
+  h6+ul,
+  h6+ol,
+  h6+figure,
+  figure+p,
+  figure+ul,
+  figure+ol {
+    --ns-marginTop: var(--ns-spacingMini1);
+  }
+
+  h1+h2 {
+    --ns-marginTop: var(--ns-spacingMinor2);
+  }
+
+  p+h1,
+  p+h2,
+  p+h3,
+  p+h4,
+  p+h5,
+  p+h6,
+  h2+h3,
+  h3+h4,
+  h4+h5,
+  h5+h6,
+  ol+h1,
+  ol+h2,
+  ol+h3,
+  ol+h4,
+  ol+h5,
+  ol+h6,
+  ul+h1,
+  ul+h2,
+  ul+h3,
+  ul+h4,
+  ul+h5,
+  ul+h6,
+  figure+h1,
+  figure+h2,
+  figure+h3,
+  figure+h4,
+  figure+h5,
+  figure+h6 {
+    --ns-marginTop: var(--ns-spacingMinor1);
+  }
+
+  a {
+    @include default-link;
+  }
+}
+
+@mixin ns-grid($full: false) {
+  display: flex;
+  justify-content: space-between;
+
+  @if $full ==true {
+    &>* {
+      flex-grow: 1;
+    }
+  }
+
+  @else {
+    gap: $grid-gap;
+  }
+}
+
+@mixin ns-grid-item($size, $min: 0, $max: 0) {
+  @if $max !=0 and $min !=0 {
+    flex-basis: math.div($size, 12) * 100%;
+    max-width: $max;
+    min-width: $min;
+    flex-shrink: 0;
+  }
+
+  @else if $max !=0 {
+    flex-basis: math.div($size, 12) * 100%;
+    max-width: $max;
+  }
+
+  @else if $min !=0 {
+    flex-basis: minmax($min, math.div($size, 12) * 100%);
+    min-width: $min;
+    flex-shrink: 0;
+  }
+
+  @else {
+    flex-basis: math.div($size, 12) * 100%;
+  }
+}
+
+@mixin color-interactive-filter {
+  filter: invert(49%) sepia(37%) saturate(2009%) hue-rotate(322deg) brightness(95%) contrast(99%);
+}
+
+@mixin hyperlink {
+  font-family: $default_font_family;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration-line: underline;
+  text-transform: capitalize;
+  color: var(--ns-color-interactive);
+  transition: color .25s;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--ns-color-interactive-hover);
+  }
+
+  @include desktop {
+    line-height: 1.25rem;
+  }
+}
+
+@mixin microlink {
+  font-family: $default_font_family;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration-line: underline;
+  text-transform: capitalize;
+  color: var(--ns-color-interactive);
+  transition: color .25s;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--ns-color-interactive-hover);
+  }
+
+  @include desktop {
+    line-height: 1rem;
+  }
+}
+
+@mixin primary-button {
+  position: relative;
+  @include button-text();
+  background-color: var(--ns-color-interactive);
+  color: var(--ns-color-interactive-copy);
+  display: inline-block;
+  cursor: pointer;
+
+  padding: {
+    top: 8px;
+    bottom: 8px;
+    left: 16px;
+    right: 16px;
+  }
+
+  border: 0;
+  transition: all .25s;
+
+  @include desktop() {
+    padding: {
+      top: 16px;
+      bottom: 16px;
+    }
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: var(--ns-color-interactive-hover);
+    color: var(--ns-color-interactive-copy-hover);
+  }
+
+  a {
+    color: var(--ns-color-interactive-copy);
+  }
+}
+
+@mixin secondary-button {
+  position: relative;
+  @include button-text();
+  display: inline-block;
+  color: var(--ns-color-interactive-secondary);
+  background-color: transparent;
+  cursor: pointer;
+
+  padding: {
+    top: 6px;
+    bottom: 6px;
+    left: 16px;
+    right: 16px;
+  }
+
+  border: 2px solid var(--ns-color-interactive-secondary);
+  transition: all .25s;
+
+  @include desktop() {
+    padding: {
+      top: 14px;
+      bottom: 14px;
+    }
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--ns-color-interactive-secondary-hover);
+    border-color: var(--ns-color-interactive-secondary-hover);
+  }
+
+  a {
+    color: var(--ns-color-interactive-secondary);
+  }
+}
+
+@mixin tertiary-button {
+  position: relative;
+  @include button-text;
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  color: var(--ns-color-interactive-secondary);
+  background-color: transparent;
+  border: 0;
+  transition: border-color .25s,
+    color .25s;
+
+  &::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: var(--ns-color-interactive-secondary);
+    mask-image: url('~/assets/svgs/arrows/cta-arrow.svg');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    transform: translateX(0px);
+    transition: background-color .25s, transform .25s;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--ns-color-interactive-secondary-hover);
+
+    &::after {
+      background-color: var(--ns-color-interactive-secondary-hover);
+      transform: translateX(8px);
+    }
+  }
+
+  a {
+    color: var(--ns-color-interactive-secondary);
+  }
+}
+
+@mixin micro-button {
+  @include unstyled-link();
+  position: relative;
+  @include micro-button-text();
+  background-color: var(--ns-color-interactive);
+  color: var(--ns-color-interactive-copy);
+  display: inline-block;
+  cursor: pointer;
+
+  padding: {
+    top: 4px;
+    bottom: 4px;
+    left: 8px;
+    right: 8px;
+  }
+
+  border: 0;
+  transition: all .25s;
+
+  @include desktop() {
+    padding: {
+      top: 8px;
+      bottom: 8px;
+    }
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--ns-color-interactive-copy-hover);
+    background-color: var(--ns-color-interactive-hover);
+  }
+}
+
+@mixin pagination-number {
+  @include button-text();
+  text-decoration: none;
+  color: var(--ns-color-interactive-hover);
+  background-color: var(--ns-color-interactive);
+  border: 1px solid var(--ns-color-interactive);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include desktop() {
+    width: 32px;
+    height: 32px;
+  }
+
+  &:hover {
+    background-color: var(--background);
+  }
+
+  &.--active {
+    background-color: var(--background);
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+@mixin meatball {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: 1px solid var(--ns-color-interactive);
+  border-radius: 50%;
+  overflow: hidden;
+  color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--ns-color-interactive);
+  }
+
+  &.--active {
+    background-color: var(--ns-color-interactive);
+    cursor: default;
+  }
+
+  @include desktop {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@mixin styled-checkbox {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  position: relative;
+  color: currentColor;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--ns-color-body);
+  vertical-align: middle;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:before {
+    content: "";
+    @include svg-mask;
+    mask-image: url(~/assets/svgs/icons/Check.svg);
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+    transform: scale(0);
+    transition: transform $transition;
+    background-color: var(--ns-color-body);
+  }
+
+  &:hover,
+  &:focus {
+    //border-color: var(--ns-color-interactive);
+  }
+
+  &:checked {
+
+    &:before {
+      transform: scale(1);
+    }
+  }
+}
+
+// styles for the mobile filter drawer used in advanced search and filtered listings blocks, use the included helper classes
+
+// structure
+
+// --filter-drawer (opacity background, can apply to the form element
+//    button.--filter-drawer-close (mobile close filter button)
+//    --filter-drawer-wrap (white background, contains filter controls)
+@mixin mobile-filter-drawer {
+  display: none;
+  transition: all 0.5s;
+
+  &.--is-open {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #00000080;
+    z-index: 1;
+  }
+
+  @include desktop {
+    display: unset;
+
+    &.--is-open {
+      position: relative;
+      background-color: unset;
+    }
+  }
+
+  .--filter-drawer-wrap {
+    background-color: #FFFFFF;
+    max-height: calc(100vh - 200px);
+    border-radius: 10px 10px 0px 0px;
+    overflow: auto;
+
+    padding: {
+      top: 32px;
+      right: 27px;
+      left: 16px;
+      bottom: 32px;
+    }
+
+    @include desktop {
+      padding: 0;
+      max-height: unset;
+      border-radius: 0px;
+      overflow: hidden;
+      background-color: unset;
+    }
+  }
+
+  .--filter-drawer-close {
+    display: flex;
+    color: #FFFFFF;
+    background: none;
+    border: none;
+    align-self: flex-end;
+    gap: 16px;
+
+    margin: {
+      bottom: 8px;
+      right: 16px;
+    }
+
+    &:after {
+      content: '';
+      height: 100%;
+      width: 20px;
+      display: block;
+      background-color: #FFFFFF;
+      @include svg-mask;
+      mask-image: url(~/assets/svgs/icons/Times.svg);
+      -webkit-mask-image: url(~/assets/svgs/icons/Times.svg);
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+}

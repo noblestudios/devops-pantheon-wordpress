@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "ns/eyebrow",
+	"title": "Eyebrow",
+	"category": "text",
+	"description": "Introduce new sections and organize content to help visitors (and search engines) understand the structure of your content.",
+	"keywords": [ "title", "subtitle","eyebrow" ],
+	"textdomain": "default",
+	"attributes": {
+		"textAlign": {
+			"type": "string"
+		},
+		"content": {
+			"type": "string",
+			"source": "html",
+			"selector": "div,h1,h2,h3,h4,h5,h6",
+			"default": "",
+			"__experimentalRole": "content"
+		},
+		"tag": {
+			"type": "number",
+			"default": 0
+		},
+		"placeholder": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"align": [ "wide", "left", "center" ],
+		"anchor": false,
+		"className": true,
+		"__unstablePasteTextInline": true,
+		"__experimentalSlashInserter": true
+	},
+  "example": {
+    "viewportWidth": 200
+  },
+	"editorScript": "file:./index.js"
+}

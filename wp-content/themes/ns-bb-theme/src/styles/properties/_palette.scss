@@ -1,0 +1,194 @@
+@use '../abstracts' as *;
+
+@mixin base-color-theme {
+  --ns-color-body: #{$color-body};
+  --ns-color-background: '';
+  --ns-color-hl-primary: #{$color-hl-primary};
+  --ns-color-hl-secondary: #{$color-hl-secondary};
+
+  --ns-color-interactive: #{$color-interactive};
+  --ns-color-interactive-copy: #{$color-interactive-copy};
+  --ns-color-interactive-hover: #{$color-interactive-hover};
+
+  --ns-color-interactive-secondary: #{$color-interactive-sec};
+  --ns-color-interactive-secondary-hover: #{$color-interactive-sec-hover};
+
+  --ns-color-cta-primary-bg: #{$color-cta-primary-background};
+  --ns-color-cta-primary-bg-hover: #{$color-cta-primary-background-hover};
+  --ns-color-cta-primary-text: #{$color-cta-primary-text};
+  --ns-color-cta-primary-text-hover: #{$color-cta-primary-text-hover};
+
+  --ns-color-cta-secondary: #{$color-cta-secondary};
+  --ns-color-cta-secondary-hover: #{$color-cta-secondary-hover};
+
+  --ns-color-cta-tertiary: #{$color-cta-tertiary};
+  --ns-color-cta-tertiary-hover: #{$color-cta-tertiary-hover};
+
+  --ns-hl-xxl-color: #{$color-hl-primary};
+  --ns-hl-xl-color: #{$color-hl-secondary};
+  --ns-hl-l-color: #{$color-hl-primary};
+  --ns-hl-m-color: #{$color-hl-secondary};
+  --ns-hl-s-color: #{$color-hl-primary};
+  --ns-hl-xs-color: #{$color-hl-secondary};
+}
+
+@mixin color-theme-two {
+  --ns-color-background: #000000;
+  --ns-color-body: #{$color-body-2};
+  --ns-color-hl-primary: #{$color-hl-primary-2};
+  --ns-color-hl-secondary: #{$color-hl-secondary-2};
+
+  --ns-color-interactive: #{$color-interactive-2};
+  --ns-color-interactive-copy: #{$color-interactive-copy-2};
+  --ns-color-interactive-hover: #{$color-interactive-hover-2};
+  --ns-color-interactive-secondary: #{$color-interactive-sec-2};
+  --ns-color-interactive-secondary-hover: #{$color-interactive-sec-hover-2};
+
+  --ns-color-cta-primary-bg: #{$color-cta-primary-background-2};
+  --ns-color-cta-primary-bg-hover: #{$color-cta-primary-background-hover-2};
+  --ns-color-cta-primary-text: #{$color-cta-primary-text-2};
+  --ns-color-cta-primary-text-hover: #{$color-cta-primary-text-hover-2};
+
+  --ns-color-cta-secondary: #{$color-cta-secondary-2};
+  --ns-color-cta-secondary-hover: #{$color-cta-secondary-hover-2};
+
+  --ns-color-cta-tertiary: #{$color-cta-tertiary-2};
+  --ns-color-cta-tertiary-hover: #{$color-cta-tertiary-hover-2};
+
+  --ns-hl-xxl-color: #{$color-hl-primary-2};
+  --ns-hl-xl-color: #{$color-hl-secondary-2};
+  --ns-hl-l-color: #{$color-hl-primary-2};
+  --ns-hl-m-color: #{$color-hl-secondary-2};
+  --ns-hl-s-color: #{$color-hl-primary-2};
+  --ns-hl-xs-color: #{$color-hl-secondary-2};
+}
+
+@mixin color-theme-image {
+  --ns-color-background: transparent;
+  --ns-color-body: #FFFFFF;
+  --ns-color-hl-primary: #FFFFFF;
+  --ns-color-hl-secondary: #FFFFFF;
+  --ns-color-hl-primary: #FFFFFF;
+
+  --ns-color-interactive: #FFFFFF;
+  --ns-color-interactive-copy: #f15a5d;
+  --ns-color-interactive-hover: #f15a5d;
+  --ns-color-interactive-copy-hover: #FFFFFF;
+  --ns-color-interactive-secondary: #{$color-interactive-sec-2};
+  --ns-color-interactive-secondary-hover: #FFFFFF;
+
+  --ns-color-cta-primary-bg: #FFFFFF;
+  --ns-color-cta-primary-bg-hover: #{$color-cta-primary-background};
+  --ns-color-cta-primary-text: #{$color-cta-primary-background};
+  --ns-color-cta-primary-text-hover: #FFFFFF;
+
+  --ns-color-cta-secondary: #{$color-cta-secondary-2};
+  --ns-color-cta-secondary-hover: #{$color-cta-secondary-hover-2};
+
+  --ns-color-cta-tertiary: #{$color-cta-tertiary-2};
+  --ns-color-cta-tertiary-hover: #{$color-cta-tertiary-hover-2};
+
+  --ns-hl-xxl-color: #FFFFFF;
+  --ns-hl-xl-color: #FFFFFF;
+  --ns-hl-l-color: #FFFFFF;
+  --ns-hl-m-color: #FFFFFF;
+  --ns-hl-s-color: #FFFFFF;
+  --ns-hl-xs-color: #FFFFFF;
+}
+
+:root,
+.editor-styles-wrapper {
+  --ns-color-page-background: #FFFFFF;
+
+  @include base-color-theme;
+
+  .--background-two {
+    @include color-theme-two;
+  }
+
+  // applies only on mobile
+  .--background-two-mobile {
+    @include color-theme-two;
+
+    @include desktop {
+      @include base-color-theme;
+    }
+  }
+
+  // applies only on desktop
+  .--background-two-desktop {
+
+    @include desktop {
+      @include color-theme-two;
+    }
+  }
+
+  .--theme-background-image {
+    @include color-theme-image;
+  }
+
+  // applies only on desktop
+  .--theme-background-image-desktop {
+
+    @include desktop {
+      @include color-theme-image;
+    }
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --ns-color-hl-primary: #{$color-hl-primary};
+  --ns-color-hl-secondary: #{$color-hl-secondary};
+  --ns-color-body: #{$color-body};
+  --ns-color-interactive: #{$color-interactive};
+  --ns-color-interactive-copy: #FFFFFF;
+  --ns-color-interactive-hover: #{$color-interactive-hover};
+  --ns-color-interactive-copy-hover: #FFFFFF;
+  --ns-color-interactive-secondary: #{$color-interactive-sec};
+}
+
+.--theme-1 {
+  --background: #ffffff;
+  --ns-color-hl-primary: #{$color-hl-primary};
+  --ns-color-hl-secondary: #{$color-hl-secondary};
+  --ns-color-body: #{$color-body};
+  --ns-color-interactive: #{$color-interactive};
+  --ns-color-interactive-copy: #FFFFFF;
+  --ns-color-interactive-hover: #{$color-interactive-hover};
+  --ns-color-interactive-copy-hover: #FFFFFF;
+  --ns-color-interactive-secondary: #{$color-interactive-sec};
+  --ns-color-interactive-secondary-hover: #222222;
+
+  color: var(--ns-color-body);
+}
+
+.--theme-2 {
+  --background: #222222;
+  --ns-color-hl-primary: #{$color-hl-primary-2};
+  --ns-color-hl-secondary: #{$color-hl-secondary-2};
+  --ns-color-body: #{$color-body-2};
+  --ns-color-interactive: #{$color-interactive-2};
+  --ns-color-interactive-copy: #FFFFFF;
+  --ns-color-interactive-hover: #E6E7E8;
+  --ns-color-interactive-copy-hover: #F15A5D;
+  --ns-color-interactive-secondary: #90D5AC;
+  --ns-color-interactive-secondary-hover: #E6E7E8;
+
+  color: var(--ns-color-body);
+}
+
+.--theme-3 {
+  --background: #222222;
+  --ns-color-hl-primary: #ffffff;
+  --ns-color-hl-secondary: #ffffff;
+  --ns-color-body: #ffffff;
+  --ns-color-interactive: #ffffff;
+  --ns-color-interactive-copy: #F15A5D;
+  --ns-color-interactive-hover: #ffffff;
+  --ns-color-interactive-copy-hover: #ffffff;
+  --ns-color-interactive-secondary: #90D5AC;
+  --ns-color-interactive-secondary-hover: #E6E7E8;
+
+  color: var(--ns-color-body);
+}

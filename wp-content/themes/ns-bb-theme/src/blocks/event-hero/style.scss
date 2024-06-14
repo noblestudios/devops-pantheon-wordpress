@@ -1,0 +1,160 @@
+@use '../../styles/abstracts' as *;
+
+.wp-block-ns-event-hero {
+  position: relative;
+
+  &__image-wrap {
+    height: 125px;
+    position: relative;
+
+    @include desktop {
+      height: 480px;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__main-grid {
+    @include wideSize;
+
+    padding: {
+      top: var(--ns-spacingMajor2);
+      bottom: var(--ns-spacingMajor2);
+    }
+  }
+
+  &__breadcrumbs {}
+
+  &__headline {
+    margin: {
+      top: var(--ns-spacingMini1);
+    }
+
+    @include desktop {
+      margin: {
+        top: var(--ns-spacingMinor2);
+      }
+    }
+  }
+
+  &__details {
+    margin: {
+      top: var(--ns-spacingMinor1);
+    }
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--ns-spacingMinor1);
+
+    @include desktop {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+    }
+
+    &-location,
+    &-phone,
+    &-email,
+    &-date-time,
+    &-cost {
+      position: relative;
+
+      padding: {
+        left: 28px;
+      }
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background-image: url(~/assets/svgs/icons/LocationPin.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        filter: $filter__color-hl-secondary;
+      }
+    }
+
+    &-location {
+      line-height: 1;
+    }
+
+    &-date-time {
+
+      &:before {
+        top: 0;
+        background-image: url(~/assets/svgs/icons/Calendar.svg);
+
+        @include desktop {
+          top: 4px;
+        }
+      }
+    }
+
+    &-cost {
+      margin: {
+        top: var(--ns-spacingMini1);
+      }
+
+      &:before {
+        background-image: url(~/assets/svgs/icons/Ticket.svg);
+
+        @include desktop {
+          top: 4px;
+        }
+      }
+    }
+
+    &-phone {
+
+      &:before {
+        background-image: url(~/assets/svgs/icons/phone.svg);
+
+        @include desktop {
+          top: 4px;
+        }
+      }
+    }
+
+    &-email {
+      margin: {
+        top: var(--ns-spacingMini1);
+      }
+
+      &:before {
+        background-image: url(~/assets/svgs/socials/mail.svg);
+
+        @include desktop {
+          top: 4px;
+        }
+      }
+    }
+  }
+
+  &__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+
+    margin: {
+      top: var(--ns-spacingMinor1);
+    }
+
+    @include desktop {
+      gap: var(--ns-spacingMinor2);
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__cta {}
+}

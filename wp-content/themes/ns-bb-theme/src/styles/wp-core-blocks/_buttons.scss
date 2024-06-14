@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+
+
+.wp-block-button:not(.is-style-secondary, .is-style-tertiary, .is-style-micro) {
+  .wp-block-button__link {
+    @include primary-button;
+  }
+}
+
+.wp-block-button {
+
+  &.is-style-secondary {
+    .wp-block-button__link {
+      @include secondary-button;
+    }
+  }
+
+  &.is-style-tertiary {
+    .wp-block-button__link {
+      @include tertiary-button;
+      padding: 0;
+    }
+  }
+
+  &.is-style-micro {
+    .wp-block-button__link {
+      @include micro-button;
+    }
+  }
+}

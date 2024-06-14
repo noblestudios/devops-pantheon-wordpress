@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ns/starter-block",
+  "title": "Starter Block",
+  "description": "Just a scaffold for a new block",
+  "category": "widgets",
+  "icon": "",
+  "keywords": [],
+  "styles": [],
+  "supports": {
+    "multiple": true,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "anchor": {
+      "type": "string",
+      "default": ""
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "eyebrowTag": {
+      "type": "string",
+      "default": "div"
+    },
+    "headline": {
+      "type": "string",
+      "default": ""
+    },
+    "headlineTag": {
+      "type": "string",
+      "default": "h1"
+    },
+    "cta": {
+      "type": "object",
+      "default": false
+    },
+    "image": {
+      "type": "integer",
+      "default": 0
+    },
+    "textControlValue": {
+      "type": "string",
+      "default": ""
+    },
+    "selectControlValue": {
+      "type": "string",
+      "default": ""
+    },
+    "radioControlValue": {
+      "type": "string",
+      "default": ""
+    },
+    "toggleValue": {
+      "type": "boolean",
+      "default": false
+    },
+    "linkControlValue": {
+      "type": "object",
+      "default": false
+    }
+  },
+  "style": "ns-starterBlock",
+  "editorScript": "file:./index.js",
+  "render": "file:./template-starter-block.php"
+}
