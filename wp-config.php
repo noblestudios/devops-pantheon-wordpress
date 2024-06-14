@@ -1,4 +1,22 @@
 <?php
+
+/**
+ *
+ */
+if ( ! function_exists( 'get_current_env' ) ) {
+    function get_current_env(): ?string {
+        // FYI Lando sets PANTHEON_ENVIRONMENT=lando.
+        // https://docs.lando.dev/pantheon/environment.html.
+        return getenv( 'PANTHEON_ENVIRONMENT' ) ?: 'local'; //phpcs:ignore
+    }
+}
+
+if ( ! function_exists( 'is_env' ) ) {
+    function is_env( ...$name ): bool {
+        return in_array( get_current_env(), $name, true );
+    }
+}
+
 /**
  * This config file is yours to hack on. It will work out of the box on Pantheon
  * but you may find there are a lot of neat tricks to be used here.
@@ -69,12 +87,35 @@ $table_prefix = 'wp_';
  * You may want to examine $_ENV['PANTHEON_ENVIRONMENT'] to set this to be
  * "true" in dev, but false in test and live.
  */
-if ( ! defined( 'WP_DEBUG' ) ) {
-	define('WP_DEBUG', false);
+define( 'WP_DEBUG', ! is_env( 'live' ) );
+define( 'WP_DEBUG_LOG', ! is_env( 'live' ) );
+define( 'WP_DEBUG_DISPLAY', ! is_env( 'live' ) );
+
+if ( is_env( 'local', 'lando' ) ) {
+    // Send email to Mailhog.
+    define( 'WPMS_ON', true );
+    define( 'WPMS_MAIL_FROM', 'mail@example.org' );
+    define( 'WPMS_MAIL_FROM_FORCE', true );
+    define( 'WPMS_MAIL_FROM_NAME', 'Noble Developer' );
+    define( 'WPMS_MAIL_FROM_NAME_FORCE', true );
+
+    define( 'WPMS_MAILER', 'smtp' );
+    define( 'WPMS_SSL', '' );
+    define( 'WPMS_SMTP_AUTOTLS', true );
+    define( 'WPMS_SMTP_HOST', 'mailhog' );
+    define( 'WPMS_SMTP_PORT', 1025 );
+    define( 'WPMS_SMTP_AUTH', false );
 }
 
 /* That's all, stop editing! Happy Pressing. */
 
+/*
+ * Set a custom error reporting level. This is useful for development and testing.
+ * This is provided by the mu-plugin noble-php-error-reporting.php
+ */
+if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+    define( 'NS_ERROR_REPORTING', E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED );
+}
 
 
 

@@ -17,6 +17,10 @@ protected_web_paths:
   - /private/
   - /wp-content/uploads/private/
   - /xmlrpc.php
+  - /README.md
+  - /docs
+  - /wp-content/themes/ns-bb-theme/README.md
+  - /wp-content/themes/ns-bb-theme/readme.md
 
 # By default, any 'protected_web_paths' added to the pantheon.yml file
 # are combined with the paths from the pantheon.upstream.yml file. If

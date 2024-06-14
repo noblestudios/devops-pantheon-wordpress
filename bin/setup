@@ -1,0 +1,38 @@
+#!/bin/bash
+
+SOURCE_ENV=${SOURCE_ENV:-dev}
+
+function setup_lando {
+    lando start
+    lando pull --database=$SOURCE_ENV --files=none --code=none
+}
+
+function setup_wordpress_tests {
+    lando ssh -c ./bin/setup_wp_core_tests
+}
+
+function check_pre_reqs {
+    if ! [ -x "$(command -v lando)" ]; then
+        echo "Error: lando is not installed." >&2
+        exit 1
+    fi
+}
+
+function print_lando_info {
+    echo -e "Lando info:"
+    echo -e "App URLs:\n$(lando info -s appserver_nginx --format=json | jq -r '.[0].urls[]')"
+}
+
+function main {
+    check_pre_reqs
+    setup_lando
+    setup_wordpress_tests
+
+    lando wp user update @noblestudios --user_pass=password
+
+    print_lando_info
+
+    echo -e "Setup complete!"
+}
+
+main

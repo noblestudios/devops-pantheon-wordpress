@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+
+usage() {
+    echo -e "'dbfix' will update the domain used in WordPress with the value defined in Lando Info"
+    echo -e "You must pass in the source domain to change"
+    echo -e "$ ./bin/dbfix noblestudios.com"
+}
+
+if [ -z "$1" ]; then
+    usage;
+    exit 1;
+fi
+
+SOURCE=${1:-currentsiteurl.com}
+TARGET=${2:-$(lando info --service=appserver_nginx --path=0.urls.0)}
+TARGET="${TARGET//\'}" # Strip single quotes
+TARGET=`echo "$TARGET" | sed 's/\/*$//g'` # Strip trailing slash
+TARGET="${TARGET/http:\/\//}" # Strip http://
+
+echo "Replacing $SOURCE with $TARGET"
+
+echo wp search-replace www.$SOURCE $TARGET
+echo wp search-replace $SOURCE $TARGET
+echo wp search-replace https://$TARGET $TARGET

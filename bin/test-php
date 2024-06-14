@@ -1,0 +1,7 @@
+#!/bin/bash
+
+WORKDIR=wp-content/themes/ns-bb-theme
+
+cd $WORKDIR
+composer install
+./vendor/bin/phpunit --colors

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+npm run lint:js --workspaces -- --max-warnings 0 --format stylish
+
+# Capture the ESLint exit code
+eslint_exit_code=$?

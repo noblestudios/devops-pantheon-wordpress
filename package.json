@@ -1,0 +1,11 @@
+{
+    "workspaces": [
+        "wp-content/themes/*"
+    ],
+    "devDependencies": {
+        "@noblestudios/bob":"https://github.com/noblestudios/devops-bob#main"
+    },
+    "scripts":{
+        "bob":"ns-bob"
+    }
+}

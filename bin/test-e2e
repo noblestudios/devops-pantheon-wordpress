@@ -1,0 +1,72 @@
+#!/bin/bash
+
+set -e
+
+ENV=${1:-$(git rev-parse --abbrev-ref HEAD)}
+PANTHEON_SITE_ID=${PANTHEON_SITE_ID:-$(yq -p yaml -o json .lando.yml | jq -r '.config.id')}
+THEME_DIRECTORY=./wp-content/themes/ns-bb-theme
+
+# Map our current branch to a pantheon environment
+declare -a env_map=("development:development" "production:dev")
+
+get_mapped_env() {
+    local target_env
+    for entry in "${env_map[@]}"; do
+        source_env="${entry%%:*}"
+        target_env="${entry#*:}"
+        if [ "$source_env" == "$1" ]; then
+            echo "$target_env"
+            return
+        fi
+    done
+    # Default to the input branch if no mapping found
+    echo "$1"
+}
+
+PANTHEON_ENVIRONMENT=$(get_mapped_env $ENV)
+
+PANTHEON_SITE="${PANTHEON_SITE_ID}.${PANTHEON_ENVIRONMENT}"
+
+usage() {
+    echo "Usage: "
+    echo "CI=true PANTHEON_SITE_ID=<PANTHEON_SITE_ID> ./bin/test-e2e <environment>"
+}
+
+execute_test() {
+    cd $THEME_DIRECTORY
+    npx playwright install-deps
+    npx playwright install
+    npm ci
+    npm run e2e:${PANTHEON_ENVIRONMENT}
+}
+
+main() {
+    if [[ -z "$ENV" ]]; then
+        echo "ENV is not set"
+        usage
+        exit 1;
+    fi
+
+    if [[ -z "$PANTHEON_SITE_ID" ]]; then
+        echo "PANTHEON_SITE_ID is not set"
+        usage
+        exit 1;
+    fi
+
+    pending=true
+
+    echo "Checking deploy status of ${PANTHEON_SITE}"
+    terminus workflow:wait --max 600 -- ${PANTHEON_SITE}
+
+    echo "Clear Pantheon Site Cache"
+    terminus env:clear-cache ${PANTHEON_SITE}
+
+    echo "Waking Site"
+    terminus env:wake ${PANTHEON_SITE}
+
+    echo "Executing E2E Tests"
+    execute_test
+    exit 0
+}
+
+main
